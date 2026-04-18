@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 59c4f5d9a752a5d45a984e89cb847e71
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - SFXSource: {instanceID: 0}
+  - engineSource: {instanceID: 0}
+  - audioMixer: {fileID: 24100000, guid: e155ff02633cecb43afddf0bc433d063, type: 2}
+  - background: {fileID: 8300000, guid: bddde1876e90e8345b551c89078fb717, type: 3}
+  - SubWalk: {fileID: 8300000, guid: dd544966c138ea54b96d39fff568987c, type: 3}
+  - Sonar: {fileID: 8300000, guid: 745a2af7dcaa37b48870790287b6e576, type: 3}
+  - Enemy_alarm: {fileID: 8300000, guid: 6f66f359f855c9b499ee9be9e9cc73e6, type: 3}
+  - Enemy_scream: {fileID: 8300000, guid: a469584fe9375504a97973bda5e69653, type: 3}
+  - death: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
