@@ -13,13 +13,13 @@ public class SettingsUI : MonoBehaviour
 
     private void OnMusicChanged(float value)
     {
-        // AudioManager.Instance.SetMusicVolume(value);
-        Debug.Log($"Music volume changed to: {value}");
+         AudioManager.Instanse.SetMusicVolume(value);
+//        Debug.Log($"Music volume changed to: {value}");
     }
 
     private void OnSFXChanged(float value)
     {
-        // AudioManager.Instance.SetSFXVolume(value);
-        Debug.Log($"SFX volume changed to: {value}");
+         AudioManager.Instanse.SetSFXVolume(value);
+  //      Debug.Log($"SFX volume changed to: {value}");
     }
 }

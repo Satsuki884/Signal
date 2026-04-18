@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         float speed = lastFrameVelocity.magnitude;
 
         // Debug для налагодження — прибери коли все ок
-        Debug.Log($"vel: {speed:F4}, stationaryTimer: {stationaryTimer:F3}");
+       // Debug.Log($"vel: {speed:F4}, stationaryTimer: {stationaryTimer:F3}");
 
         if (speed > movementThreshold)
         {
