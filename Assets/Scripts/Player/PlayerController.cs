@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue value)
     {
         _moveInput = value.Get<Vector2>();
+        Debug.Log("Вектор движения: " + _moveInput);
     }
 
     private void FixedUpdate()
