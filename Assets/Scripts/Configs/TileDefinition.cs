@@ -3,7 +3,6 @@ using UnityEngine;
 
 public enum LocationType
 {
-    Any,
     World,
     A,
     B,
@@ -20,11 +19,12 @@ public class TileVariant
 [CreateAssetMenu(fileName = "TileDefinition", menuName = "Configs/Tile Definition")]
 public class TileDefinition : ScriptableObject
 {
-    [Header("Base Info")]
-    [SerializeField] private string tileDefinitionName;
-    public string TileName => tileDefinitionName;
-
-    [Header("Connections")]
-    [SerializeField] private TileDefinition connections;
-    public TileDefinition Connections => connections;
+    [SerializeField] private List<TileVariant> topRooms;
+    public List<TileVariant> TopRooms => topRooms;
+    [SerializeField] private List<TileVariant> bottomRooms;
+    public List<TileVariant> BottomRooms => bottomRooms;
+    [SerializeField] private List<TileVariant> leftRooms;
+    public List<TileVariant> LeftRooms => leftRooms;
+    [SerializeField] private List<TileVariant> rightRooms;
+    public List<TileVariant> RightRooms => rightRooms;
 }

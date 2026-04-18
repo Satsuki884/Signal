@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d828bbcf5a3014bb9658b1a04ca695, type: 3}
+  m_Name: 1_door_A_L
+  m_EditorClassIdentifier: Assembly-CSharp::TileData
+  tileName: 1_door_A_L
+  prefab: {fileID: 718279389663139467, guid: 62ace6a5c98a9cd4fa694fcc004ccff3, type: 3}
+  locationType: 2
+  topConnections: []
+  bottomConnections: []
+  leftConnections:
+  - {fileID: 11400000, guid: f12c00eb8bfffad4195a48b7130e3938, type: 2}
+  - {fileID: 11400000, guid: 54f03e73584172a428b4849ff610b091, type: 2}
+  - {fileID: 11400000, guid: aee6156ac3219914b87759bcc5312dd0, type: 2}
+  - {fileID: 11400000, guid: 72409bdc22407914e878659469c2084c, type: 2}
+  - {fileID: 11400000, guid: 98d6fc370a79cf84f82c875cfcdc2724, type: 2}
+  - {fileID: 11400000, guid: 03e4e5a5bf4c9eb4ab0844996104c4c5, type: 2}
+  - {fileID: 11400000, guid: e4eaf7cc66da8014d9e1b18be84689de, type: 2}
+  rightConnections: []
+  spawnOffset: {x: 0, y: 0}

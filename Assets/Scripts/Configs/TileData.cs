@@ -22,12 +22,6 @@ public class TileData : ScriptableObject
                 return v.prefab;
         }
 
-        foreach (var v in variants)
-        {
-            if (v.locationType == LocationType.Any)
-                return v.prefab;
-        }
-
         return variants.Count > 0 ? variants[0].prefab : null;
     }
 

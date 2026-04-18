@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d828bbcf5a3014bb9658b1a04ca695, type: 3}
+  m_Name: 2_doors_line_A_V
+  m_EditorClassIdentifier: Assembly-CSharp::TileData
+  tileName: 2_doors_line_A_V
+  prefab: {fileID: 5902288350727693036, guid: 094c623f878ef7e4da042aee5316dddb, type: 3}
+  locationType: 2
+  topConnections:
+  - {fileID: 11400000, guid: fa7e61f610fba664981fc866f749585e, type: 2}
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: a3061922ee2204942b289cae4fa9da4c, type: 2}
+  - {fileID: 11400000, guid: 54f03e73584172a428b4849ff610b091, type: 2}
+  - {fileID: 11400000, guid: 98d6fc370a79cf84f82c875cfcdc2724, type: 2}
+  - {fileID: 11400000, guid: 7292509d7af84194e92c2df53ae9c456, type: 2}
+  - {fileID: 11400000, guid: 03e4e5a5bf4c9eb4ab0844996104c4c5, type: 2}
+  - {fileID: 11400000, guid: e4eaf7cc66da8014d9e1b18be84689de, type: 2}
+  bottomConnections:
+  - {fileID: 11400000, guid: d6c84587104144e43ae1b64cc336c166, type: 2}
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: fd857ef397d4ce140a87293cd0daff87, type: 2}
+  - {fileID: 11400000, guid: aee6156ac3219914b87759bcc5312dd0, type: 2}
+  - {fileID: 11400000, guid: 72409bdc22407914e878659469c2084c, type: 2}
+  - {fileID: 11400000, guid: 98d6fc370a79cf84f82c875cfcdc2724, type: 2}
+  - {fileID: 11400000, guid: 7292509d7af84194e92c2df53ae9c456, type: 2}
+  - {fileID: 11400000, guid: e4eaf7cc66da8014d9e1b18be84689de, type: 2}
+  leftConnections: []
+  rightConnections: []
+  spawnOffset: {x: 0, y: 0}
