@@ -41,10 +41,8 @@ public class KnobController : MonoBehaviour, IDragHandler, IPointerDownHandler
     public float GetValue()
     {
         float t = Mathf.InverseLerp(minAngle, maxAngle, currentAngle);
+        t = 1f - t;
 
         return Mathf.Lerp(-80f, 0f, t);
-
-        // t = 1f - t;
-        // return Mathf.Lerp(0f, -80f, t);
     }
 }
