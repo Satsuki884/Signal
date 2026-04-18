@@ -4,14 +4,23 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private float _animationSpeed = 5f;
+    private Coroutine _moveCoroutine;
+
     [Header("BigSonar Panels")]
     [SerializeField] private Button _bigSonarButton;
     [SerializeField] private RectTransform _bigSonarPanel;
-    [SerializeField] private float _showX = 0f;
-    [SerializeField] private float _hideX = 325f;
-    [SerializeField] private float _animationSpeed = 5f;
+    [SerializeField] private float _showBigSonarPanelX = 0f;
+    [SerializeField] private float _hideBigSonarPanelX = 325f;
     private bool _isBigSonarActive = false;
-    private Coroutine _moveCoroutine;
+
+
+    [Header("Volume Panels")]
+    [SerializeField] private Button _volumeButton;
+    [SerializeField] private RectTransform _volumePanel;
+    [SerializeField] private float _showVolumeX = 0f;
+    [SerializeField] private float _hideVolumeX = -375f;
+    private bool _isVolumeActive = false;
 
     [Header("SmallSonar Panels")]
     [SerializeField] private Button _smallSonarButton;
@@ -23,26 +32,41 @@ public class UIManager : MonoBehaviour
     {
         _bigSonarButton.onClick.RemoveAllListeners();
         _smallSonarButton.onClick.RemoveAllListeners();
-        _bigSonarButton.onClick.AddListener(OnBigSonarButtonClicked);
+        _bigSonarButton.onClick.AddListener(() => OnButtonSonarClicked(_showBigSonarPanelX, _hideBigSonarPanelX));
+        _volumeButton.onClick.AddListener(() => OnButtonVolumeClicked(_showVolumeX, _hideVolumeX));
         _smallSonarButton.onClick.AddListener(OnSmallSonarButtonClicked);
-        SetPanelPosition(_hideX);
+        SetPanelsPosition();
     }
 
-    private void OnBigSonarButtonClicked()
+    private void OnButtonSonarClicked(float showX, float hideX)
     {
+        Debug.Log($"Button clicked. Current state: {_isBigSonarActive}");
         _isBigSonarActive = !_isBigSonarActive;
 
-        float targetX = _isBigSonarActive ? _showX : _hideX;
+        float targetX = _isBigSonarActive ? showX : hideX;
 
         if (_moveCoroutine != null)
             StopCoroutine(_moveCoroutine);
 
-        _moveCoroutine = StartCoroutine(MovePanel(targetX));
+        _moveCoroutine = StartCoroutine(MovePanel(_bigSonarPanel, targetX));
     }
 
-    private IEnumerator MovePanel(float targetX)
+    private void OnButtonVolumeClicked(float showX, float hideX)
     {
-        Vector2 startPos = _bigSonarPanel.anchoredPosition;
+        Debug.Log($"Button clicked. Current state: {_isVolumeActive}");
+        _isVolumeActive = !_isVolumeActive;
+
+        float targetX = _isVolumeActive ? showX : hideX;
+
+        if (_moveCoroutine != null)
+            StopCoroutine(_moveCoroutine);
+
+        _moveCoroutine = StartCoroutine(MovePanel(_volumePanel, targetX));
+    }
+
+    private IEnumerator MovePanel(RectTransform panel, float targetX)
+    {
+        Vector2 startPos = panel.anchoredPosition;
         Vector2 targetPos = new Vector2(targetX, startPos.y);
 
         float t = 0f;
@@ -50,18 +74,24 @@ public class UIManager : MonoBehaviour
         while (t < 1f)
         {
             t += Time.deltaTime * _animationSpeed;
-            _bigSonarPanel.anchoredPosition = Vector2.Lerp(startPos, targetPos, t);
+            panel.anchoredPosition = Vector2.Lerp(startPos, targetPos, t);
             yield return null;
         }
 
-        _bigSonarPanel.anchoredPosition = targetPos;
+        panel.anchoredPosition = targetPos;
     }
 
-    private void SetPanelPosition(float x)
+    private void SetPanelsPosition()
     {
-        Vector2 pos = _bigSonarPanel.anchoredPosition;
+        SetPanelPosition(_bigSonarPanel, _hideBigSonarPanelX);
+        SetPanelPosition(_volumePanel, _hideVolumeX);
+    }
+
+    private void SetPanelPosition(RectTransform panel, float x)
+    {
+        Vector2 pos = panel.anchoredPosition;
         pos.x = x;
-        _bigSonarPanel.anchoredPosition = pos;
+        panel.anchoredPosition = pos;
     }
 
     private void OnSmallSonarButtonClicked()
