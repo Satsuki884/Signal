@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -87,15 +87,24 @@ public class AudioManager : MonoBehaviour
     {
         if (isEngineRunning == moving) return;
 
-        isEngineRunning = moving;
-
-        if (isEngineRunning)
+        if (moving)
         {
+            isEngineRunning = true;
+
+            // Якщо корутина вже йде — зупиняємо її і запускаємо заново, щоб уникнути дублювання
+            if (engineCoroutine != null)
+            {
+                StopCoroutine(engineCoroutine);
+                engineCoroutine = null;
+            }
+
             engineCoroutine = StartCoroutine(EngineLoop());
         }
         else
         {
-            StopEngine();
+            // Встановлюємо прапорець false — корутина EngineLoop побачить це і зробить плавний fade‑out
+            isEngineRunning = false;
+            // НЕ викликаємо тут StopEngine(), інакше fade‑out не відбудеться
         }
     }
 
@@ -104,7 +113,7 @@ public class AudioManager : MonoBehaviour
         engineSource.clip = SubWalk;
         engineSource.loop = true;
 
-        // ���������� ������� ���
+        // Початковий низький тон
         engineSource.pitch = 0.1f;
         engineSource.Play();
 
@@ -117,7 +126,7 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        // ������ ���������
+        // Плавне затухання
         while (engineSource.pitch > 0.05f)
         {
             engineSource.pitch = Mathf.MoveTowards(engineSource.pitch, 0f, Time.deltaTime * speed);
