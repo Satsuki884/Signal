@@ -6250,7 +6250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 325, y: 0}
+  m_AnchoredPosition: {x: 324.99994, y: 0}
   m_SizeDelta: {x: 600, y: 500}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1928816827
@@ -6262,6 +6262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1928816828}
+  - component: {fileID: 1928816829}
   m_Layer: 5
   m_Name: Game
   m_TagString: Untagged
@@ -6295,6 +6296,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1928816829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928816827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db514e7a0a57424a8bf710379492c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  _bigSonarButton: {fileID: 2101933419}
+  _bigSonarPanel: {fileID: 1928302779}
+  _showX: 0
+  _hideX: 325
+  _animationSpeed: 2
+  _smallSonarButton: {fileID: 927221052}
+  _smallSonarActiveColor: {r: 0, g: 1, b: 0, a: 1}
+  _smallSonarInactiveColor: {r: 0.3803922, g: 0.8235295, b: 0.63529414, a: 1}
 --- !u!1 &1938938804
 GameObject:
   m_ObjectHideFlags: 0
