@@ -6,13 +6,13 @@ public class RadarManager : MonoBehaviour
     public static RadarManager Instance;
 
     [Header("Ссылки")]
-    public Transform player;          // Сюда игрока
-    public RectTransform markerParent; // Тот самый MarkerContainer
-    public GameObject markerPrefab;    // Твой префаб знака вопроса
+    public Transform player;
+    public RectTransform markerParent;
+    public GameObject markerPrefab;
 
     [Header("Настройки")]
-    public float radarRange = 50f;     // Дистанция, на которой скейл минимальный
-    public float radarSize = 100f;     // Радиус твоего UI круга (если радар 200, то тут 100)
+    public float radarRange = 50f;
+    public float radarSize = 100f;
     public float minScale = 0.5f;
     public float maxScale = 2.0f;
 
@@ -39,15 +39,15 @@ public class RadarManager : MonoBehaviour
                 continue;
             }
 
-            // 1. Считаем вектор в 2D
+
             Vector2 diff = (Vector2)targets[i].target.position - (Vector2)player.position;
             float dist = diff.magnitude;
 
-            // 2. Прибиваем к краю
+            
             Vector2 dir = dist > 0.1f ? diff.normalized : Vector2.up;
             targets[i].marker.anchoredPosition = dir * radarSize;
 
-            // 3. Масштаб по дистанции (чем ближе, тем больше)
+            
             float t = Mathf.Clamp01(1 - (dist / radarRange));
             targets[i].marker.localScale = Vector3.one * Mathf.Lerp(minScale, maxScale, t);
         }
