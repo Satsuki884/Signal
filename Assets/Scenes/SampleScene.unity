@@ -8660,7 +8660,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1928302779}
-  - component: {fileID: 1928302780}
   m_Layer: 5
   m_Name: BigSonar
   m_TagString: Untagged
@@ -8690,23 +8689,6 @@ RectTransform:
   m_AnchoredPosition: {x: 474.99994, y: 0}
   m_SizeDelta: {x: 600, y: 500}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &1928302780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928302778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f9c17f81ceefb14fa7348d2108727ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BigSonarController
-  _sonarPanel: {fileID: 1928302778}
-  _sonarPanelRectTransform: {fileID: 0}
-  _showSonarPanelX: 0
-  _healthPanelX: 475
-  _hideSonarPanelX: 325
 --- !u!1 &1928816827
 GameObject:
   m_ObjectHideFlags: 0
@@ -8764,7 +8746,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   _animationSpeed: 2
   _bigSonarButton: {fileID: 2101933419}
-  _bigSonarController: {fileID: 1928302780}
+  _bigSonarPanelRectTransform: {fileID: 1928302779}
+  _showSonarPanelX: 0
+  _hideSonarPanelX: 325
+  _healthPanelX: 475
   _volumeButton: {fileID: 139868758}
   _volumePanel: {fileID: 438359770}
   _showVolumeX: 0

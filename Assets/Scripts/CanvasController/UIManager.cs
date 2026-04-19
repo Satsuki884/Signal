@@ -15,7 +15,11 @@ public class UIManager : MonoBehaviour
 
     [Header("BigSonar Panels")]
     [SerializeField] private Button _bigSonarButton;
-    [SerializeField] private BigSonarController _bigSonarController;
+    [SerializeField] private RectTransform _bigSonarPanelRectTransform;
+    // [SerializeField] private BigSonarController _bigSonarController;
+    [SerializeField] private float _showSonarPanelX = 0f;
+    [SerializeField] private float _hideSonarPanelX = 325f;
+    [SerializeField] private float _healthPanelX = 475f;
     private bool _isBigSonarActive = false;
 
 
@@ -36,7 +40,7 @@ public class UIManager : MonoBehaviour
     {
         _bigSonarButton.onClick.RemoveAllListeners();
         _smallSonarButton.onClick.RemoveAllListeners();
-        _bigSonarButton.onClick.AddListener(() => OnButtonSonarClicked(_bigSonarController.ShowSonarPanelX, _bigSonarController.HideSonarPanelX));
+        _bigSonarButton.onClick.AddListener(() => OnButtonSonarClicked(_showSonarPanelX, _hideSonarPanelX));
         _volumeButton.onClick.AddListener(() => OnButtonVolumeClicked(_showVolumeX, _hideVolumeX));
         _smallSonarButton.onClick.AddListener(OnSmallSonarButtonClicked);
         SetPanelsPosition();
@@ -52,7 +56,7 @@ public class UIManager : MonoBehaviour
         if (_moveCoroutine != null)
             StopCoroutine(_moveCoroutine);
 
-        _moveCoroutine = StartCoroutine(MovePanel(_bigSonarController.SonarPanelTransform, targetX));
+        _moveCoroutine = StartCoroutine(MovePanel(_bigSonarPanelRectTransform, targetX));
     }
 
     private void OnButtonVolumeClicked(float showX, float hideX)
@@ -87,8 +91,18 @@ public class UIManager : MonoBehaviour
 
     private void SetPanelsPosition()
     {
-        SetPanelPosition(_bigSonarController.SonarPanelTransform, _bigSonarController.HideSonarPanelX);
+        SetPanelPosition(_bigSonarPanelRectTransform, _healthPanelX);
         SetPanelPosition(_volumePanel, _hideVolumeX);
+    }
+
+    public void ShowBigSonarPanel(bool show)
+    {
+        float targetX = show ? _hideSonarPanelX : _healthPanelX;
+
+        if (_moveCoroutine != null)
+            StopCoroutine(_moveCoroutine);
+
+        _moveCoroutine = StartCoroutine(MovePanel(_bigSonarPanelRectTransform, targetX));
     }
 
     private void SetPanelPosition(RectTransform panel, float x)

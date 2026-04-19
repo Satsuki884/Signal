@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
     public void ObtainBigSonar()
     {
         _playerSO.HasBigSonar = true;
-        BigSonarController.Instance.SetBigSonarPanelPosition();
+        // BigSonarController.Instance.SetBigSonarPanelPosition();
+        UIManager.Instance.ShowBigSonarPanel(_playerSO.HasBigSonar);
     }
 
     public void ResetPlayerData()
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
         _playerSO.HasLocator = false;
         LocatorController.Instance.SetLocatorPanelPosition(false);
         _playerSO.HasBigSonar = false;
-        BigSonarController.Instance.SetBigSonarPanelPosition();
+        UIManager.Instance.ShowBigSonarPanel(_playerSO.HasBigSonar);
         _playerSO.CurrentHealth = _playerSO.MaxHealth;
         HealthController.Instance.UpdateHealth(_playerSO.CurrentHealth);
 
