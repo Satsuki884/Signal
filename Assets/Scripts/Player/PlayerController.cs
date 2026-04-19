@@ -6,14 +6,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private Transform _startPoint;
 
+    [Header("Movement")]
+    [SerializeField] private float _acceleration = 5f;
+    [SerializeField] private float _deceleration = 4f;
+
+    [Header("Rotation")]
     [SerializeField] private float _rotationSpeed = 180f;
+    [SerializeField] private float _rotationAcceleration = 300f;
 
     private float _currentSpeed;
+    private float _currentVelocity = 0f;
+    private float _currentRotationSpeed = 0f;
 
     private Rigidbody2D _rb;
 
-    private float _moveInput;     // 🔥 тільки вперед/назад
-    private float _rotationInput; // 🔥 тільки поворот
+    private float _moveInput;     
+    private float _rotationInput; 
 
     private Vector2 prevPosition;
     private Vector2 lastFrameVelocity;
@@ -37,17 +45,19 @@ public class PlayerController : MonoBehaviour
         _currentSpeed = playerSO.WalkSpeed;
     }
 
+    // 🔥 Input (Vector2 WASD)
     public void OnMove(InputValue value)
     {
         Vector2 input = value.Get<Vector2>();
 
-        _moveInput = input.y;        // 🔥 тільки вперед/назад
-        _rotationInput = input.x;   // 🔥 A/D → поворот
+        _moveInput = input.y;       
+        _rotationInput = input.x;   
     }
 
     public void OnMoveCanceled(InputValue value)
     {
         _moveInput = 0f;
+        _rotationInput = 0f;
     }
 
     private void FixedUpdate()
@@ -82,19 +92,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void RotateByInput()
-    {
-        float rotation = -_rotationInput * _rotationSpeed * Time.deltaTime;
-        transform.Rotate(0f, 0f, rotation);
-    }
-
+    // 🔥 ІНЕРЦІЯ РУХУ
     private void Move()
     {
-        Vector2 forward = transform.right;
+        float targetVelocity = _moveInput * _currentSpeed;
 
-        Vector2 move = forward * _moveInput * _currentSpeed;
+        float accel = Mathf.Abs(targetVelocity) > Mathf.Abs(_currentVelocity)
+            ? _acceleration
+            : _deceleration;
+
+        _currentVelocity = Mathf.MoveTowards(
+            _currentVelocity,
+            targetVelocity,
+            accel * Time.fixedDeltaTime
+        );
+
+        // щоб не "повзло" вічно
+        if (Mathf.Abs(_currentVelocity) < 0.01f)
+            _currentVelocity = 0f;
+
+        Vector2 forward = transform.right;
+        Vector2 move = forward * _currentVelocity;
 
         _rb.MovePosition(_rb.position + move * Time.fixedDeltaTime);
+    }
+
+    // 🔥 ІНЕРЦІЯ ПОВОРОТУ
+    private void RotateByInput()
+    {
+        float targetRotationSpeed = _rotationInput * _rotationSpeed;
+
+        _currentRotationSpeed = Mathf.MoveTowards(
+            _currentRotationSpeed,
+            targetRotationSpeed,
+            _rotationAcceleration * Time.deltaTime
+        );
+
+        transform.Rotate(0f, 0f, -_currentRotationSpeed * Time.deltaTime);
     }
 
     private void UpdateAnimations()
