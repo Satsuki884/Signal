@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button _volumeButton;
     [SerializeField] private RectTransform _volumePanel;
     [SerializeField] private float _showVolumeX = 0f;
-    [SerializeField] private float _hideVolumeX = -375f;
+    [SerializeField] private float _hideVolumeX = -550f;
     private bool _isVolumeActive = false;
 
     [Header("SmallSonar Panels")]

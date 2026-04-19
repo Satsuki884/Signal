@@ -101,6 +101,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: e75398e93f148d74b8ca060e1e5370c7
+    name: EngineVolume
   - guid: 3098153eac47e7a40bf83868824c2cee
     name: MusicVolume
   - guid: 7de6da5f32491b64d8cd5e7b77dec31b

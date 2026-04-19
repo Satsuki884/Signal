@@ -63,16 +63,17 @@ public class AudioManager : MonoBehaviour
 
     public void SetMusicVolume(float value)
     {
-        //Debug.Log("MusicVolume" + value);
         audioMixer.SetFloat("MusicVolume", value);
-        //Debug.Log("music_clamp"+ Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f);
     }
 
     public void SetSFXVolume(float value)
     {
-       // Debug.Log("SFXVolume" + value);
         audioMixer.SetFloat("SFXVolume", value);
-        //Debug.Log("SFX_clamp" + Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f);
+    }
+
+    public void SetEngineVolume(float value)
+    {
+        audioMixer.SetFloat("EngineVolume", value);
     }
 
     // ================= SFX =================
