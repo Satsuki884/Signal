@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
     }
-    [SerializeField] private float _animationSpeed = 5f;
+    [SerializeField] private float _animationSpeed = 2f;
     private Coroutine _moveCoroutine;
 
     [Header("BigSonar Panels")]
@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
         _moveCoroutine = StartCoroutine(MovePanel(_volumePanel, targetX));
     }
 
-    public IEnumerator MovePanel(RectTransform panel, float targetX)
+    public IEnumerator MovePanel(RectTransform panel, float targetX, float animationSpeed = 2f)
     {
         Vector2 startPos = panel.anchoredPosition;
         Vector2 targetPos = new Vector2(targetX, startPos.y);
@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime * _animationSpeed;
+            t += Time.deltaTime * (animationSpeed != 0 ? animationSpeed : _animationSpeed);
             panel.anchoredPosition = Vector2.Lerp(startPos, targetPos, t);
             yield return null;
         }

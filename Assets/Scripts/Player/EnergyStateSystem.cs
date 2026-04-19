@@ -19,9 +19,6 @@ public class EnergyStateSystem : MonoBehaviour
     [SerializeField] private float _passiveReduseSpeed = 0.25f;
     // [SerializeField] private float _bigSonarBonusIncrease = 0.5f;
 
-    [Header("UI")]
-    [SerializeField] private EndUIPanel _endUIPanel;
-
     private void Awake()
     {
         Instance = this;
@@ -47,7 +44,7 @@ public class EnergyStateSystem : MonoBehaviour
     {
         if (EnergyValue <= 0f)
         {
-            _endUIPanel.GameOver("You have lost all your energy!");
+            EndUIPanel.Instance.GameOver("You have lost all your energy!");
             return;
         }
 

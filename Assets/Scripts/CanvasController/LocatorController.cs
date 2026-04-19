@@ -20,15 +20,11 @@ public class LocatorController : MonoBehaviour
     }
     public void SetLocatorPanelPosition(bool show)
     {
-        Vector2 pos = _locatorPanel.anchoredPosition;
-        pos.x = show ? _showLocatorPanelX : _hideLocatorPanelX;
-        _locatorPanel.anchoredPosition = pos;
-
         float targetX = show ? _showLocatorPanelX : _hideLocatorPanelX;
 
         if (_moveCoroutine != null)
             StopCoroutine(_moveCoroutine);
 
-        _moveCoroutine = StartCoroutine(UIManager.Instance.MovePanel(_locatorPanel, targetX));
+        _moveCoroutine = StartCoroutine(UIManager.Instance.MovePanel(_locatorPanel, targetX, 3f));
     }
 }

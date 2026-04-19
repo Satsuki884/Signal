@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSO
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSO
   _walkSpeed: 5
+  _MaxHealth: 3
+  _currentHealth: 3
+  _hasLocator: 0
+  _hasBigSonar: 0
