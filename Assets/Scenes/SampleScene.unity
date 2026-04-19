@@ -563,6 +563,7 @@ MonoBehaviour:
   _deceleration: 1.5
   _rotationSpeed: 180
   _rotationAcceleration: 800
+  _animator: {fileID: 1355280866}
   movementThreshold: 0.01
   stopDelay: 0.08
 --- !u!4 &115182703
@@ -6494,8 +6495,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1355280864}
   - component: {fileID: 1355280865}
+  - component: {fileID: 1355280866}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6565,7 +6567,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 8793639957104055765, guid: b450ba525ea4d4545b4dd090e0ce17e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6575,6 +6577,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &1355280866
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355280863}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ecbe53f75724fe4cb8ea9714d4aea41, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1371498315
 GameObject:
   m_ObjectHideFlags: 0
@@ -6689,7 +6713,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -424.99994, y: 0}
+  m_AnchoredPosition: {x: -425, y: 0}
   m_SizeDelta: {x: 475, y: 375}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1371723746
@@ -8817,7 +8841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 474.99994, y: 0}
+  m_AnchoredPosition: {x: 475, y: 0}
   m_SizeDelta: {x: 600, y: 500}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1928816827
@@ -8900,6 +8924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530368ad94d05f849bb2a766f578ebef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  hitSoundCooldown: 0.15
   _playerSO: {fileID: 11400000, guid: cedd733908c13684cb8367fc8977e4fa, type: 2}
 --- !u!1 &1938938804
 GameObject:
@@ -9839,7 +9864,7 @@ GameObject:
   - component: {fileID: 2139708437}
   - component: {fileID: 2139708438}
   m_Layer: 0
-  m_Name: Triangle (1)
+  m_Name: Radar
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

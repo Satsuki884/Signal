@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [Header("Rotation (Light)")]
     [SerializeField] private float _rotationSpeed = 200f;
     [SerializeField] private float _rotationAcceleration = 800f;
+    [SerializeField] private Animator _animator;
 
     private float _currentSpeed;
     private float _currentVelocity = 0f;
