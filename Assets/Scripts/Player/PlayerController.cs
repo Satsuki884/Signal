@@ -3,38 +3,44 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Rotation")]
+    [SerializeField] private float rotationSpeed = 360f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+
+    [Header("Movement")]
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private Transform _startPoint;
 
-    // [SerializeField] private Animator _animator;
-    // [SerializeField] private AudioManager audioManager;
+    [Header("Inertia")]
+    [SerializeField] private float velocitySmoothTime = 0.18f; // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ)
+    [SerializeField] private float maxSpeed = 5f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ playerSO.WalkSpeed)
+    [SerializeField] private float acceleration = 20f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (0 = пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
+    private Vector2 velocitySmooth; // ref пїЅпїЅпїЅ SmoothDamp
 
     private float _currentSpeed;
-
     private Rigidbody2D _rb;
-
     private Vector2 _moveInput;
 
     private Vector2 prevPosition;
     private Vector2 lastFrameVelocity;
 
-    [SerializeField] private float movementThreshold = 0.01f; // підлаштуй: 0.01f або 0.05f
-    [SerializeField] private float stopDelay = 0.08f; // скільки секунд без руху, щоб вважати зупинку
+    [SerializeField] private float movementThreshold = 0.01f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: 0.01f пїЅпїЅпїЅ 0.05f
+    [SerializeField] private float stopDelay = 0.08f; // пїЅпїЅпїЅ (пїЅ) пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private float stationaryTimer = 0f;
     private bool lastEngineState = false;
 
     private void Awake()
     {
-        if (_rb == null)
-            _rb = GetComponent<Rigidbody2D>();
-        transform.position = _startPoint.position;
+        _rb = GetComponent<Rigidbody2D>();
+        if (_startPoint != null)
+            transform.position = _startPoint.position;
 
         prevPosition = _rb.position;
     }
 
     private void Start()
     {
-        _currentSpeed = playerSO.WalkSpeed;
+        if (playerSO != null)
+            _currentSpeed = playerSO.WalkSpeed;
     }
 
     public void OnMove(InputValue value)
@@ -47,53 +53,49 @@ public class PlayerController : MonoBehaviour
         _moveInput = Vector2.zero;
     }
 
-
     private void FixedUpdate()
     {
         Move();
 
-        // Обчислюємо "реальну" швидкість по зміні позиції між FixedUpdate викликами
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ FixedUpdate пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Vector2 newPos = _rb.position;
         lastFrameVelocity = (newPos - prevPosition) / Time.fixedDeltaTime;
         prevPosition = newPos;
 
-        if (!Mouse.current.leftButton.isPressed)
-        {
-            RotateToMovement();
-        }
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+        // if (!Mouse.current.leftButton.isPressed)
+        // {
+        //     RotateToMovement();
+        // }
     }
-
-
 
     private void Update()
     {
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         FlipToMouse();
+
         UpdateAnimations();
 
-        // використовуємо magnitude (не sqrMagnitude) для порогу — зручніше читати
         float speed = lastFrameVelocity.magnitude;
-
-        // Debug для налагодження — прибери коли все ок
-       // Debug.Log($"vel: {speed:F4}, stationaryTimer: {stationaryTimer:F3}");
 
         if (speed > movementThreshold)
         {
-            // є рух — скидаємо таймер і вмикаємо двигун
             stationaryTimer = 0f;
             SetEngineIfNeeded(true);
         }
         else
         {
-            // немає руху — накопичуємо час без руху
             stationaryTimer += Time.deltaTime;
 
             if (stationaryTimer >= stopDelay)
                 SetEngineIfNeeded(false);
             else
-                SetEngineIfNeeded(true); // поки не пройшов stopDelay — вважай що ще рух
+                SetEngineIfNeeded(true); // пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ stopDelay пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ
         }
 
+        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ AudioManager.UpdateEnginePitch(...) пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     }
+
     private void SetEngineIfNeeded(bool state)
     {
         if (AudioManager.Instanse == null) return;
@@ -109,12 +111,18 @@ public class PlayerController : MonoBehaviour
         mouseScreen.z = Mathf.Abs(Camera.main.transform.position.z);
 
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
-
         Vector2 direction = mouseWorld - transform.position;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        if (direction.sqrMagnitude < 0.0001f) return; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float currentAngle = transform.eulerAngles.z;
+
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
+        float maxDelta = rotationSpeed * Time.deltaTime;
+
+        float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, maxDelta);
+        transform.rotation = Quaternion.Euler(0f, 0f, newAngle);
     }
 
     private void UpdateAnimations()
@@ -125,24 +133,43 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ
         Vector2 forward = transform.right;
-
         Vector2 right = new Vector2(forward.y, -forward.x);
 
-        Vector2 move = (forward * _moveInput.y + right * _moveInput.x) * _currentSpeed;
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
+        Vector2 inputDir = (forward * _moveInput.y + right * _moveInput.x);
+        Vector2 targetDir = inputDir.sqrMagnitude > 0.0001f ? inputDir.normalized : Vector2.zero;
 
-        _rb.MovePosition(_rb.position + move * Time.fixedDeltaTime);
+        // ЦіпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ _currentSpeed пїЅпїЅпїЅпїЅ пїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ maxSpeed)
+        float targetSpeed = (_currentSpeed > 0f) ? _currentSpeed : maxSpeed;
+        Vector2 targetVelocity = targetDir * targetSpeed;
+
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        Vector2 newVelocity = Vector2.SmoothDamp(_rb.linearVelocity, targetVelocity, ref velocitySmooth, velocitySmoothTime);
+
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
+        if (acceleration > 0f)
+        {
+            Vector2 delta = newVelocity - _rb.linearVelocity;
+            float maxStep = acceleration * Time.fixedDeltaTime;
+            if (delta.magnitude > maxStep)
+                newVelocity = _rb.linearVelocity + delta.normalized * maxStep;
+        }
+
+        _rb.linearVelocity = newVelocity;
     }
+
 
     private void RotateToMovement()
     {
         if (_moveInput.magnitude > 0.1f)
         {
             float angle = Mathf.Atan2(_moveInput.y, _moveInput.x) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10f * Time.fixedDeltaTime);
+            float maxDelta = rotationSpeed * Time.fixedDeltaTime;
+            float currentAngle = transform.eulerAngles.z;
+            float newAngle = Mathf.MoveTowardsAngle(currentAngle, angle, maxDelta);
+            transform.rotation = Quaternion.Euler(0f, 0f, newAngle);
         }
     }
-
 }

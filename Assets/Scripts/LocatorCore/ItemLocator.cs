@@ -6,6 +6,10 @@ public class ItemLocator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Відтворюємо звук підбору
+            if (AudioManager.Instanse != null && AudioManager.Instanse.interact != null)
+                AudioManager.Instanse.PlaySFX(AudioManager.Instanse.interact);
+
             GameManager.Instance.ObtainLocator();
             Debug.Log("Locator obtained!");
             Destroy(gameObject);

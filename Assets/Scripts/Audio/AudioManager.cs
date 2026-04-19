@@ -24,8 +24,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip Sonar;
     public AudioClip Enemy_alarm;
     public AudioClip Enemy_scream;
+    public AudioClip LowBat;
+    public AudioClip interact;
     public AudioClip death;
-
+    public AudioClip[] hit;
     // Engine sound state
     private Coroutine engineCoroutine;
     private bool isEngineRunning;
