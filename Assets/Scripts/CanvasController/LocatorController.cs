@@ -1,32 +1,22 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LocatorController : MonoBehaviour
-{    
+{
+
+    public static LocatorController Instance { get; private set; }
+    void Awake()
+    {
+        Instance = this;
+    }
     [Header("Locator Panels")]
-    [SerializeField] private float _animationSpeed = 5f;
     private Coroutine _moveCoroutine;
     [SerializeField] private RectTransform _locatorPanel;
     [SerializeField] private float _showLocatorPanelX = 0f;
-    [SerializeField] private float _hideLocatorPanelX = 325f;
-    [SerializeField] private PlayerSO _playerSO;
+    [SerializeField] private float _hideLocatorPanelX = -425f;
 
-    private IEnumerator MovePanel(RectTransform panel, float targetX)
+    void Start()
     {
-        Vector2 startPos = panel.anchoredPosition;
-        Vector2 targetPos = new Vector2(targetX, startPos.y);
-
-        float t = 0f;
-
-        while (t < 1f)
-        {
-            t += Time.deltaTime * _animationSpeed;
-            panel.anchoredPosition = Vector2.Lerp(startPos, targetPos, t);
-            yield return null;
-        }
-
-        panel.anchoredPosition = targetPos;
+        SetLocatorPanelPosition(false);
     }
     public void SetLocatorPanelPosition(bool show)
     {
@@ -39,6 +29,6 @@ public class LocatorController : MonoBehaviour
         if (_moveCoroutine != null)
             StopCoroutine(_moveCoroutine);
 
-        _moveCoroutine = StartCoroutine(MovePanel(_locatorPanel, targetX));
+        _moveCoroutine = StartCoroutine(UIManager.Instance.MovePanel(_locatorPanel, targetX));
     }
 }

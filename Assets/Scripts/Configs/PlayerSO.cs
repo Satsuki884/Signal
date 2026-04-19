@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerSO", menuName = "Configs/Player")]
@@ -10,18 +9,27 @@ public class PlayerSO : ScriptableObject
     public int Health => _health;
     [SerializeField] private bool _hasLocator = false;
     public bool Locator => _hasLocator;
-    [SerializeField] private LocatorController _locatorPrefab;
-    public LocatorController LocatorPrefab => _locatorPrefab;
+    [SerializeField] private bool _hasBigSonar = false;
+    public bool BigSonar => _hasBigSonar;
 
     public void ObtainLocator()
     {
         _hasLocator = true;
-        _locatorPrefab.SetLocatorPanelPosition(true);
+        LocatorController.Instance.SetLocatorPanelPosition(true);
+    }
+
+    public void ObtainBigSonar()
+    {
+        _hasBigSonar = true;
+        BigSonarController.Instance.SetUsingSonarPanel(true);
     }
 
     public void ResetPlayerData()
     {
         _hasLocator = false;
-        _locatorPrefab.SetLocatorPanelPosition(false);
+        LocatorController.Instance.SetLocatorPanelPosition(false);
+        _hasBigSonar = false;
+        BigSonarController.Instance.SetUsingSonarPanel(false);
+
     }
 }

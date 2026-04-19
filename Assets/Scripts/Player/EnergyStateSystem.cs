@@ -1,6 +1,5 @@
-using UnityEngine;
-using Unity.Cinemachine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class EnergyStateSystem : MonoBehaviour
@@ -8,6 +7,8 @@ public class EnergyStateSystem : MonoBehaviour
     public static EnergyStateSystem Instance;
 
     [SerializeField] private Slider _energyValueSlider;
+    [SerializeField] private TMP_Text _energyValueText;
+    [SerializeField] private TMP_Text _energyReduseSpeedText;
 
     [Range(0f, 100f)]
     public float EnergyValue = 100f;
@@ -15,13 +16,11 @@ public class EnergyStateSystem : MonoBehaviour
     [SerializeField] private float _maxValue = 100f;
 
     [Header("Mental Increase")]
-    [SerializeField] private float _passiveIncreaseSpeed = 0.25f;
-    [SerializeField] private float _stalkerBonusIncrease = 0.5f;
+    [SerializeField] private float _passiveReduseSpeed = 0.25f;
+    // [SerializeField] private float _bigSonarBonusIncrease = 0.5f;
 
     [Header("UI")]
     [SerializeField] private EndUIPanel _endUIPanel;
-
-    private bool _stalkerActive = false;
 
     private void Awake()
     {
@@ -39,6 +38,9 @@ public class EnergyStateSystem : MonoBehaviour
 
         EnergyValue += amount;
         EnergyValue = Mathf.Clamp(EnergyValue, 0f, _maxValue);
+        _energyValueSlider.value = EnergyValue;
+        _energyValueText.text = EnergyValue.ToString("F0");
+
     }
 
     public void ReduceEnergy(float amount)
@@ -51,13 +53,16 @@ public class EnergyStateSystem : MonoBehaviour
 
         EnergyValue -= amount;
         EnergyValue = Mathf.Clamp(EnergyValue, 0f, _maxValue);
+        _energyValueSlider.value = EnergyValue;
+        _energyValueText.text = EnergyValue.ToString("F0");
     }
 
     private void HandleEnergyIncrease()
     {
-        float speed = _passiveIncreaseSpeed;
+        float speed = _passiveReduseSpeed;
 
-        float stressMultiplier = EnergyValue / 500f;
+        float stressMultiplier = EnergyValue / 100f;
+        _energyReduseSpeedText.text = "-" + _passiveReduseSpeed.ToString("F2") + " /s";
 
         ReduceEnergy(speed * stressMultiplier * Time.deltaTime);
     }

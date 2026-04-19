@@ -1,5 +1,4 @@
 using UnityEngine;
-using Unity.Cinemachine;
 using TMPro;
 
 public class EndUIPanel : MonoBehaviour
