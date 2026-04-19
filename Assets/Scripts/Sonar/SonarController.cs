@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SonarController : MonoBehaviour
 {
@@ -16,15 +17,12 @@ public class SonarController : MonoBehaviour
         if (sonarMat == null) return;
 
         // Если нажал Z — меняем состояние на противоположное
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Keyboard.current != null && Keyboard.current.zKey.wasPressedThisFrame)
         {
             isToggledOn = !isToggledOn;
 
-            // Если выключили — мгновенно гасим радиус в шейдерах
             if (!isToggledOn)
-            {
                 ResetSonar();
-            }
         }
 
         if (isToggledOn)
