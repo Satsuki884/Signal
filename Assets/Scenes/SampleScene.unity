@@ -559,6 +559,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   playerSO: {fileID: 11400000, guid: cedd733908c13684cb8367fc8977e4fa, type: 2}
   _startPoint: {fileID: 513039436}
+  _acceleration: 2
+  _deceleration: 1.5
+  _rotationSpeed: 180
+  _rotationAcceleration: 800
   movementThreshold: 0.01
   stopDelay: 0.08
 --- !u!4 &115182703

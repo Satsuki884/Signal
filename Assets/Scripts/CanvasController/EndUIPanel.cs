@@ -28,8 +28,11 @@ public class EndUIPanel : MonoBehaviour
     private void RestartGame()
     {
         Time.timeScale = 1f;
+
+        InputManager.Instance.actions.Disable();  // 🔥 скидаємо input
+        InputManager.Instance.actions.Enable();   // 🔥 вмикаємо заново
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        _endPanel.SetActive(false);
     }
 
     public void GameOver(string message)

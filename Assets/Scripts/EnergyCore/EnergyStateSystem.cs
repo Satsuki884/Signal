@@ -24,16 +24,19 @@ public class EnergyStateSystem : MonoBehaviour
     [SerializeField] private float _maxValue = 100f;
 
     [Header("Mental Increase")]
-    [SerializeField] private float _passiveReduseSpeed = 0.25f;
-
-    // Нове поле: щоб не програвати LowBat кожен кадр
-    private bool _lowBatPlayed = false;
+    [SerializeField] private float _passiveReduseSpeed = 0.5f;
+    // [SerializeField] private float _bigSonarBonusIncrease = 0.5f;
 
     private void Awake()
     {
         Instance = this;
     }
-
+    void Start()
+    {
+        _energyValueSlider.maxValue = _maxValue;
+        _energyValueSlider.value = EnergyValue;
+        _energyValueText.text = EnergyValue.ToString("F1");
+    }
     private void Update()
     {
         HandleEnergyIncrease();
@@ -47,13 +50,8 @@ public class EnergyStateSystem : MonoBehaviour
         EnergyValue += amount;
         EnergyValue = Mathf.Clamp(EnergyValue, 0f, _maxValue);
         _energyValueSlider.value = EnergyValue;
-        _energyValueText.text = EnergyValue.ToString("F0");
+        _energyValueText.text = EnergyValue.ToString("F1");
 
-        // Якщо енергія піднялась вище порогу — скидаємо прапорець, щоб звук міг програти знову при наступному падінні
-        if (EnergyValue > _lowEnergyThreshold)
-        {
-            _lowBatPlayed = false;
-        }
     }
 
     private void HandleLowEnergyBlink()
@@ -64,13 +62,6 @@ public class EnergyStateSystem : MonoBehaviour
             {
                 _blinkCoroutine = StartCoroutine(BlinkEnergyText());
                 _isBlinking = true;
-
-                // Програємо звук LowBat один раз при вході в стан низької енергії
-                if (!_lowBatPlayed && AudioManager.Instanse != null && AudioManager.Instanse.LowBat != null)
-                {
-                    AudioManager.Instanse.PlaySFX(AudioManager.Instanse.LowBat);
-                    _lowBatPlayed = true;
-                }
             }
         }
         else
@@ -80,7 +71,7 @@ public class EnergyStateSystem : MonoBehaviour
                 StopCoroutine(_blinkCoroutine);
                 _isBlinking = false;
 
-                // повертаємо нормальний стан
+                // 🔥 повертаємо нормальний стан
                 _energyValueText.color = _energyFullColor;
             }
         }
@@ -108,8 +99,11 @@ public class EnergyStateSystem : MonoBehaviour
 
         EnergyValue -= amount;
         EnergyValue = Mathf.Clamp(EnergyValue, 0f, _maxValue);
+
+        EnergyValue = RoundTo3(EnergyValue); // 🔥 ключовий момент
+
         _energyValueSlider.value = EnergyValue;
-        _energyValueText.text = EnergyValue.ToString("F0");
+        _energyValueText.text = EnergyValue.ToString("F1");
     }
 
     private void HandleEnergyIncrease()
@@ -121,4 +115,10 @@ public class EnergyStateSystem : MonoBehaviour
 
         ReduceEnergy(speed * stressMultiplier * Time.deltaTime);
     }
+
+    private float RoundTo3(float value)
+    {
+        return Mathf.Round(value * 1000f) / 1000f;
+    }
+
 }
