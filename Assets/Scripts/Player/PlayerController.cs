@@ -6,13 +6,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private Transform _startPoint;
 
-    [Header("Movement")]
-    [SerializeField] private float _acceleration = 5f;
-    [SerializeField] private float _deceleration = 4f;
+    [Header("Movement (Heavy)")]
+    [SerializeField] private float _acceleration = 2f;
+    [SerializeField] private float _deceleration = 1.5f;
 
-    [Header("Rotation")]
-    [SerializeField] private float _rotationSpeed = 180f;
-    [SerializeField] private float _rotationAcceleration = 300f;
+    [Header("Rotation (Light)")]
+    [SerializeField] private float _rotationSpeed = 200f;
+    [SerializeField] private float _rotationAcceleration = 800f;
 
     private float _currentSpeed;
     private float _currentVelocity = 0f;
@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rb;
 
-    private float _moveInput;     
-    private float _rotationInput; 
+    private float _moveInput;
+    private float _rotationInput;
 
     private Vector2 prevPosition;
     private Vector2 lastFrameVelocity;
@@ -45,13 +45,13 @@ public class PlayerController : MonoBehaviour
         _currentSpeed = playerSO.WalkSpeed;
     }
 
-    // 🔥 Input (Vector2 WASD)
+    // 🔥 Input
     public void OnMove(InputValue value)
     {
         Vector2 input = value.Get<Vector2>();
 
-        _moveInput = input.y;       
-        _rotationInput = input.x;   
+        _moveInput = input.y;
+        _rotationInput = input.x;
     }
 
     public void OnMoveCanceled(InputValue value)
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // 🔥 ІНЕРЦІЯ РУХУ
+    // 🔥 ВАЖКИЙ РУХ (сильна інерція)
     private void Move()
     {
         float targetVelocity = _moveInput * _currentSpeed;
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
             accel * Time.fixedDeltaTime
         );
 
-        // щоб не "повзло" вічно
+        // щоб не повзло вічно
         if (Mathf.Abs(_currentVelocity) < 0.01f)
             _currentVelocity = 0f;
 
@@ -117,15 +117,20 @@ public class PlayerController : MonoBehaviour
         _rb.MovePosition(_rb.position + move * Time.fixedDeltaTime);
     }
 
-    // 🔥 ІНЕРЦІЯ ПОВОРОТУ
+    // 🔥 ЛЕГКИЙ ПОВОРОТ (менше інерції)
     private void RotateByInput()
     {
         float targetRotationSpeed = _rotationInput * _rotationSpeed;
 
+        // 🔥 швидко стартує і ще швидше зупиняється
+        float accel = Mathf.Abs(_rotationInput) > 0.01f
+            ? _rotationAcceleration          // коли крутимо
+            : _rotationAcceleration * 2f;    // коли відпустили — стоп миттєво
+
         _currentRotationSpeed = Mathf.MoveTowards(
             _currentRotationSpeed,
             targetRotationSpeed,
-            _rotationAcceleration * Time.deltaTime
+            accel * Time.deltaTime
         );
 
         transform.Rotate(0f, 0f, -_currentRotationSpeed * Time.deltaTime);
