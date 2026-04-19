@@ -208,12 +208,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a55143c9262514e9c51f5552002d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuPanelController
-  _animationSpeed: 3
-  _PlayButton: {fileID: 1849305964}
-  _menuPanelRectTransform: {fileID: 1059953956}
+  _animationSpeed: 4
+  _playButton: {fileID: 1849305964}
+  _panel: {fileID: 1059953956}
   _menuPanel: {fileID: 7573719}
-  _showMenuPanelY: 0
-  _hideMenuPanelY: 2000
+  _showY: 0
+  _hideY: 2000
 --- !u!1 &22186770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,17 +1906,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844b3363c7b7ac34e90f900bcb6795ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PausePanelController
-  _animationSpeed: 3
+  _animationSpeed: 4
   _openPauseButton: {fileID: 1730257655}
   _toMenuButton: {fileID: 274701739}
   _resumeButton: {fileID: 768733258}
-  _leftPausePanelRectTransform: {fileID: 703150510}
-  _rightPausePanelRectTransform: {fileID: 1190277560}
+  _leftPanel: {fileID: 703150510}
+  _rightPanel: {fileID: 1190277560}
   _pausePanel: {fileID: 394168675}
-  _showLeftPausePanelY: 100
-  _showRightPausePanelY: -100
-  _hideLeftPausePanelY: -2000
-  _hideRightPausePanelY: 2000
+  _leftShowX: 100
+  _leftHideX: -2000
+  _rightShowX: -100
+  _rightHideX: 2000
 --- !u!114 &394168678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8465,13 +8465,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a29d6574d0cd9c43b50cb1b684af312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndUIPanel
-  _endPanel: {fileID: 1335832717}
-  _endText: {fileID: 2035769942}
+  _panel: {fileID: 1335832717}
+  _text: {fileID: 2035769942}
   _restartButton: {fileID: 1799458688}
+  _rect: {fileID: 1023881033}
+  _showY: 0
+  _hideY: 2000
   _animationSpeed: 3
-  _endPanelRectTransform: {fileID: 1023881033}
-  _showEndPanelY: 0
-  _hideEndPanelY: 2000
 --- !u!1 &1345389743
 GameObject:
   m_ObjectHideFlags: 0
@@ -10265,7 +10265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1633499893
 RectTransform:
   m_ObjectHideFlags: 0

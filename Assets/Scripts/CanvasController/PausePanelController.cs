@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,78 +5,103 @@ using UnityEngine.UI;
 
 public class PausePanelController : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private float _animationSpeed = 3f;
-    private Coroutine _moveCoroutine;
+
+    [Header("Buttons")]
     [SerializeField] private Button _openPauseButton;
     [SerializeField] private Button _toMenuButton;
     [SerializeField] private Button _resumeButton;
-    [SerializeField] private RectTransform _leftPausePanelRectTransform;
-    [SerializeField] private RectTransform _rightPausePanelRectTransform;
+
+    [Header("Panels")]
+    [SerializeField] private RectTransform _leftPanel;
+    [SerializeField] private RectTransform _rightPanel;
     [SerializeField] private GameObject _pausePanel;
-    [SerializeField] private float _showLeftPausePanelY = 0f;
-    [SerializeField] private float _showRightPausePanelY = 0f;
-    [SerializeField] private float _hideLeftPausePanelY = 2000f;
-    [SerializeField] private float _hideRightPausePanelY = 2000f;
+
+    [Header("Positions (X)")]
+    [SerializeField] private float _leftShowX = 0f;
+    [SerializeField] private float _leftHideX = -2000f;
+
+    [SerializeField] private float _rightShowX = 0f;
+    [SerializeField] private float _rightHideX = 2000f;
+
     private void Start()
     {
-        
         _openPauseButton.onClick.RemoveAllListeners();
-        _openPauseButton.onClick.AddListener(() => OnOpenPauseButtonClicked());
-        _toMenuButton.onClick.RemoveAllListeners();
-        _toMenuButton.onClick.AddListener(() => OnToMenuButtonClicked());
+        _openPauseButton.onClick.AddListener(OpenPause);
+
         _resumeButton.onClick.RemoveAllListeners();
-        _resumeButton.onClick.AddListener(() => OnResumeButtonClicked());
-        SetPanelPosition(_leftPausePanelRectTransform, _hideLeftPausePanelY);
-        SetPanelPosition(_rightPausePanelRectTransform, _hideRightPausePanelY);
+        _resumeButton.onClick.AddListener(Resume);
+
+        _toMenuButton.onClick.RemoveAllListeners();
+        _toMenuButton.onClick.AddListener(ToMenu);
+
+        // стартовые позиции
+        SetPanelX(_leftPanel, _leftHideX);
+        SetPanelX(_rightPanel, _rightHideX);
+
         _pausePanel.SetActive(false);
     }
 
-    private void OnOpenPauseButtonClicked()
+    // 🔥 Открыть паузу
+    private void OpenPause()
     {
-        
-        if (_moveCoroutine != null)
-            StopCoroutine(_moveCoroutine);
         _pausePanel.SetActive(true);
 
-        _moveCoroutine = StartCoroutine(MovePanel(_leftPausePanelRectTransform, _showLeftPausePanelY));
-        _moveCoroutine = StartCoroutine(MovePanel(_rightPausePanelRectTransform, _showRightPausePanelY));
-        Time.timeScale = 0f;
+        StartCoroutine(MoveX(_leftPanel, _leftShowX));
+        StartCoroutine(MoveX(_rightPanel, _rightShowX));
+
+        StartCoroutine(FreezeAfterAnimation());
     }
 
-
-    private void OnResumeButtonClicked()
+    // 🔥 Resume
+    private void Resume()
     {
         Time.timeScale = 1f;
-        if (_moveCoroutine != null)
-            StopCoroutine(_moveCoroutine);
 
-        _moveCoroutine = StartCoroutine(MovePanel(_leftPausePanelRectTransform, _hideLeftPausePanelY));
-        _moveCoroutine = StartCoroutine(MovePanel(_rightPausePanelRectTransform, _hideRightPausePanelY));
-        _pausePanel.SetActive(false);
+        StartCoroutine(MoveX(_leftPanel, _leftHideX));   // ← влево
+        StartCoroutine(MoveX(_rightPanel, _rightHideX)); // ← вправо
+
+        StartCoroutine(HideAfter());
     }
 
-    private void OnToMenuButtonClicked()
+    private void ToMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public IEnumerator MovePanel(RectTransform panel, float targetY, float animationSpeed = 2f)
+    // 🔥 Движение по X
+    private IEnumerator MoveX(RectTransform panel, float targetX)
     {
-        Vector2 startPos = panel.anchoredPosition;
-        Vector2 targetPos = new Vector2(startPos.x, targetY);
+        Vector2 start = panel.anchoredPosition;
+        Vector2 target = new Vector2(targetX, start.y);
 
         float t = 0f;
 
         while (t < 1f)
         {
-            t += Time.deltaTime * (animationSpeed != 0 ? animationSpeed : _animationSpeed);
-            panel.anchoredPosition = Vector2.Lerp(startPos, targetPos, t);
+            t += Time.unscaledDeltaTime * _animationSpeed;
+            panel.anchoredPosition = Vector2.Lerp(start, target, t);
             yield return null;
         }
 
-        panel.anchoredPosition = targetPos;
+        panel.anchoredPosition = target;
     }
-    private void SetPanelPosition(RectTransform panel, float x)
+
+    private IEnumerator FreezeAfterAnimation()
+    {
+        yield return new WaitForSecondsRealtime(0.3f);
+        Time.timeScale = 0f;
+    }
+
+    private IEnumerator HideAfter()
+    {
+        yield return new WaitForSecondsRealtime(0.3f);
+        _pausePanel.SetActive(false);
+    }
+
+    private void SetPanelX(RectTransform panel, float x)
     {
         Vector2 pos = panel.anchoredPosition;
         pos.x = x;
