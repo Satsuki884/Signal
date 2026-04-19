@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
             else
                 SetEngineIfNeeded(true);
         }
+        Debug.Log(_currentVelocity);
     }
 
     // 🔥 ВАЖКИЙ РУХ (сильна інерція)
@@ -139,8 +140,10 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        float speed = Mathf.Abs(_moveInput);
-        // _animator.SetFloat("Speed", speed);
+        float normalizedSpeed = Mathf.InverseLerp(0, _currentSpeed, Mathf.Abs(_currentVelocity));
+
+        if (_animator != null)
+            _animator.SetFloat("Speed", normalizedSpeed);
     }
 
     private void SetEngineIfNeeded(bool state)
