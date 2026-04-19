@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 200f;
     [SerializeField] private float _rotationAcceleration = 800f;
     [SerializeField] private Animator _animator;
+
+    [Header("VFX")]
+    [SerializeField] private List<ParticleSystem> _engineVFX;
 
     private float _currentSpeed;
     private float _currentVelocity = 0f;
@@ -39,11 +43,13 @@ public class PlayerController : MonoBehaviour
 
         transform.position = _startPoint.position;
         prevPosition = _rb.position;
+        SetParticles(false);
     }
 
     private void Start()
     {
         _currentSpeed = playerSO.WalkSpeed;
+
     }
 
     // 🔥 Input
@@ -81,17 +87,23 @@ public class PlayerController : MonoBehaviour
         {
             stationaryTimer = 0f;
             SetEngineIfNeeded(true);
+            SetParticles(true);
         }
         else
         {
             stationaryTimer += Time.deltaTime;
 
             if (stationaryTimer >= stopDelay)
+            {
                 SetEngineIfNeeded(false);
+                SetParticles(false);
+            }
             else
+            {
                 SetEngineIfNeeded(true);
+                SetParticles(true);
+            }
         }
-        Debug.Log(_currentVelocity);
     }
 
     // 🔥 ВАЖКИЙ РУХ (сильна інерція)
@@ -153,5 +165,22 @@ public class PlayerController : MonoBehaviour
 
         lastEngineState = state;
         AudioManager.Instanse.SetEngineState(state);
+    }
+
+    private void SetParticles(bool state)
+    {
+        foreach (var ps in _engineVFX)
+        {
+            if (state)
+            {
+                if (!ps.isPlaying)
+                    ps.Play();
+            }
+            else
+            {
+                if (ps.isPlaying)
+                    ps.Stop();
+            }
+        }
     }
 }
