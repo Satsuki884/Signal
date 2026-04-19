@@ -12,12 +12,25 @@ public class DSonarScanner : MonoBehaviour
     [Header("Связь")]
     public DSonarUI dSonarUI;
 
+    [Header("Тайминги")]
+    public float dScanCooldown = 15f;
+    private float dLastScanTime = -100f;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("<color=yellow>[DSonarScanner]</color> Кнопка R нажата!");
-            DScanEnvironment();
+            if (Time.time >= dLastScanTime + dScanCooldown)
+            {
+                Debug.Log("<color=yellow>[DSonarScanner]</color> Кнопка R нажата! Запуск...");
+                dLastScanTime = Time.time;
+                DScanEnvironment();
+            }
+            else
+            {
+                float dWait = (dLastScanTime + dScanCooldown) - Time.time;
+                Debug.Log($"<color=orange>[DSonarScanner]</color> Сонор перезаряжается! Жди {dWait:F1} сек.");
+            }
         }
     }
 
