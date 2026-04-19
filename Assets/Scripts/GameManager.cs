@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         _playerSO.HasBigSonar = false;
         UIManager.Instance.ShowBigSonarPanel(_playerSO.HasBigSonar);
         _playerSO.CurrentHealth = _playerSO.MaxHealth;
-        HealthController.Instance.UpdateHealth(_playerSO.CurrentHealth);
+        HealthController.Instance.UpdateHealth(_playerSO.MaxHealth);
 
     }
 }

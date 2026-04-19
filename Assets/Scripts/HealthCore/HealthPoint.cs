@@ -7,10 +7,6 @@ public class HealthPoint : MonoBehaviour
     [SerializeField] private Color _smallSonarActiveColor = Color.red;
     [SerializeField] private Color _smallSonarInactiveColor = Color.white;
 
-    void Start()
-    {
-        SetHealthPointActive(false);
-    }
     public void SetHealthPointActive(bool active)
     {
         Image image = GetComponent<Image>();

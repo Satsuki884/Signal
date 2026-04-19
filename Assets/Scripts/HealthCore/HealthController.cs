@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,10 +20,5 @@ public class HealthController : MonoBehaviour
         {
             _healthPoints[i].SetHealthPointActive(i < currentHealth);
         }
-    }
-
-    void Start()
-    {
-        UpdateHealth(GameManager.Instance.PlayerData.CurrentHealth);
     }
 }
