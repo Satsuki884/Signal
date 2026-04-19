@@ -24,7 +24,7 @@ public class EnergyStateSystem : MonoBehaviour
     [SerializeField] private float _maxValue = 100f;
 
     [Header("Mental Increase")]
-    [SerializeField] private float _passiveReduseSpeed = 0.25f;
+    [SerializeField] private float _passiveReduseSpeed = 0.5f;
     // [SerializeField] private float _bigSonarBonusIncrease = 0.5f;
 
     private void Awake()
@@ -44,7 +44,7 @@ public class EnergyStateSystem : MonoBehaviour
         EnergyValue += amount;
         EnergyValue = Mathf.Clamp(EnergyValue, 0f, _maxValue);
         _energyValueSlider.value = EnergyValue;
-        _energyValueText.text = EnergyValue.ToString("F0");
+        _energyValueText.text = EnergyValue.ToString("F1");
 
     }
 
@@ -93,8 +93,11 @@ public class EnergyStateSystem : MonoBehaviour
 
         EnergyValue -= amount;
         EnergyValue = Mathf.Clamp(EnergyValue, 0f, _maxValue);
+
+        EnergyValue = RoundTo3(EnergyValue); // 🔥 ключовий момент
+
         _energyValueSlider.value = EnergyValue;
-        _energyValueText.text = EnergyValue.ToString("F0");
+        _energyValueText.text = EnergyValue.ToString("F1");
     }
 
     private void HandleEnergyIncrease()
@@ -105,6 +108,11 @@ public class EnergyStateSystem : MonoBehaviour
         _energyReduseSpeedText.text = "-" + _passiveReduseSpeed.ToString("F2") + " /s";
 
         ReduceEnergy(speed * stressMultiplier * Time.deltaTime);
+    }
+
+    private float RoundTo3(float value)
+    {
+        return Mathf.Round(value * 1000f) / 1000f;
     }
 
 }
