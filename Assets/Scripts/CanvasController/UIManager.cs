@@ -134,7 +134,7 @@ public class UIManager : MonoBehaviour
     {
         _isBigSonarActive = show;
 
-        float targetX = _isBigSonarActive ? _showSonarPanelX : _hideSonarPanelX;
+        float targetX = _isBigSonarActive ? _hideSonarPanelX : _healthPanelX;
 
         if (_moveCoroutine != null)
             StopCoroutine(_moveCoroutine);
