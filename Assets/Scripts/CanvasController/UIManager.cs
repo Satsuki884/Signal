@@ -4,24 +4,23 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
     public static UIManager Instance;
+
     void Awake()
     {
         Instance = this;
     }
+
     [SerializeField] private float _animationSpeed = 2f;
     private Coroutine _moveCoroutine;
 
     [Header("BigSonar Panels")]
     [SerializeField] private Button _bigSonarButton;
     [SerializeField] private RectTransform _bigSonarPanelRectTransform;
-    // [SerializeField] private BigSonarController _bigSonarController;
     [SerializeField] private float _showSonarPanelX = 0f;
     [SerializeField] private float _hideSonarPanelX = 325f;
     [SerializeField] private float _healthPanelX = 475f;
     private bool _isBigSonarActive = false;
-
 
     [Header("Volume Panels")]
     [SerializeField] private Button _volumeButton;
@@ -30,25 +29,42 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float _hideVolumeX = -550f;
     private bool _isVolumeActive = false;
 
-    [Header("SmallSonar Panels")]
+    [Header("SmallSonar Button")]
     [SerializeField] private Button _smallSonarButton;
-    private bool _isSmallSonarActive = false;
     [SerializeField] private Color _smallSonarActiveColor = Color.green;
     [SerializeField] private Color _smallSonarInactiveColor = Color.white;
 
-    void Start()
+    private void Start()
     {
         _bigSonarButton.onClick.RemoveAllListeners();
         _smallSonarButton.onClick.RemoveAllListeners();
+        _volumeButton.onClick.RemoveAllListeners();
+
         _bigSonarButton.onClick.AddListener(() => OnButtonSonarClicked(_showSonarPanelX, _hideSonarPanelX));
         _volumeButton.onClick.AddListener(() => OnButtonVolumeClicked(_showVolumeX, _hideVolumeX));
+
         _smallSonarButton.onClick.AddListener(OnSmallSonarButtonClicked);
+
+        if (SonarController.Instance != null)
+        {
+            SonarController.Instance.OnSonarStateChanged += UpdateSmallSonarVisual;
+
+            UpdateSmallSonarVisual(SonarController.Instance.IsOn);
+        }
+
         SetPanelsPosition();
+    }
+
+    private void OnDestroy()
+    {
+        if (SonarController.Instance != null)
+        {
+            SonarController.Instance.OnSonarStateChanged -= UpdateSmallSonarVisual;
+        }
     }
 
     private void OnButtonSonarClicked(float showX, float hideX)
     {
-        Debug.Log($"Button clicked. Current state: {_isBigSonarActive}");
         _isBigSonarActive = !_isBigSonarActive;
 
         float targetX = _isBigSonarActive ? showX : hideX;
@@ -61,7 +77,6 @@ public class UIManager : MonoBehaviour
 
     private void OnButtonVolumeClicked(float showX, float hideX)
     {
-        Debug.Log($"Button clicked. Current state: {_isVolumeActive}");
         _isVolumeActive = !_isVolumeActive;
 
         float targetX = _isVolumeActive ? showX : hideX;
@@ -72,6 +87,19 @@ public class UIManager : MonoBehaviour
         _moveCoroutine = StartCoroutine(MovePanel(_volumePanel, targetX));
     }
 
+    private void OnSmallSonarButtonClicked()
+    {
+        if (SonarController.Instance != null)
+        {
+            SonarController.Instance.ToggleSonar();
+        }
+    }
+
+    private void UpdateSmallSonarVisual(bool isActive)
+    {
+        _smallSonarButton.GetComponent<Image>().color =
+            isActive ? _smallSonarActiveColor : _smallSonarInactiveColor;
+    }
     public IEnumerator MovePanel(RectTransform panel, float targetX, float animationSpeed = 2f)
     {
         Vector2 startPos = panel.anchoredPosition;
@@ -95,16 +123,6 @@ public class UIManager : MonoBehaviour
         SetPanelPosition(_volumePanel, _hideVolumeX);
     }
 
-    public void ShowBigSonarPanel(bool show)
-    {
-        float targetX = show ? _hideSonarPanelX : _healthPanelX;
-
-        if (_moveCoroutine != null)
-            StopCoroutine(_moveCoroutine);
-
-        _moveCoroutine = StartCoroutine(MovePanel(_bigSonarPanelRectTransform, targetX));
-    }
-
     private void SetPanelPosition(RectTransform panel, float x)
     {
         Vector2 pos = panel.anchoredPosition;
@@ -112,18 +130,15 @@ public class UIManager : MonoBehaviour
         panel.anchoredPosition = pos;
     }
 
-    private void OnSmallSonarButtonClicked()
+    public void ShowBigSonarPanel(bool show)
     {
-        if (_isSmallSonarActive)
-        {
-            _isSmallSonarActive = false;
-            _smallSonarButton.GetComponent<Image>().color = _smallSonarInactiveColor;
+        _isBigSonarActive = show;
 
-        }
-        else
-        {
-            _isSmallSonarActive = true;
-            _smallSonarButton.GetComponent<Image>().color = _smallSonarActiveColor;
-        }
+        float targetX = _isBigSonarActive ? _hideSonarPanelX : _healthPanelX;
+
+        if (_moveCoroutine != null)
+            StopCoroutine(_moveCoroutine);
+
+        _moveCoroutine = StartCoroutine(MovePanel(_bigSonarPanelRectTransform, targetX));
     }
 }

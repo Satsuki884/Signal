@@ -8,6 +8,9 @@ public class EnergyPoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (AudioManager.Instanse != null && AudioManager.Instanse.interact != null)
+                AudioManager.Instanse.PlaySFX(AudioManager.Instanse.interact);
+
             EnergyStateSystem.Instance.AddEnergy(_energyAmount);
             Destroy(gameObject);
         }

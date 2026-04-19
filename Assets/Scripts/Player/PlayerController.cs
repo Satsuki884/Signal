@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,95 +7,157 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private Transform _startPoint;
 
-    // [SerializeField] private Animator _animator;
-    // [SerializeField] private AudioManager audioManager;
+    [Header("Movement (Heavy)")]
+    [SerializeField] private float _acceleration = 2f;
+    [SerializeField] private float _deceleration = 1.5f;
+
+    [Header("Rotation (Light)")]
+    [SerializeField] private float _rotationSpeed = 200f;
+    [SerializeField] private float _rotationAcceleration = 800f;
+    [SerializeField] private Animator _animator;
+
+    [Header("VFX")]
+    [SerializeField] private List<ParticleSystem> _engineVFX;
 
     private float _currentSpeed;
+    private float _currentVelocity = 0f;
+    private float _currentRotationSpeed = 0f;
 
     private Rigidbody2D _rb;
 
-    private Vector2 _moveInput;
+    private float _moveInput;
+    private float _rotationInput;
 
     private Vector2 prevPosition;
     private Vector2 lastFrameVelocity;
 
-    [SerializeField] private float movementThreshold = 0.01f; // підлаштуй: 0.01f або 0.05f
-    [SerializeField] private float stopDelay = 0.08f; // скільки секунд без руху, щоб вважати зупинку
+    [SerializeField] private float movementThreshold = 0.01f;
+    [SerializeField] private float stopDelay = 0.08f;
+
     private float stationaryTimer = 0f;
     private bool lastEngineState = false;
 
     private void Awake()
     {
-        if (_rb == null)
-            _rb = GetComponent<Rigidbody2D>();
-        transform.position = _startPoint.position;
+        _rb = GetComponent<Rigidbody2D>();
 
+        transform.position = _startPoint.position;
         prevPosition = _rb.position;
+        SetParticles(false);
     }
 
     private void Start()
     {
         _currentSpeed = playerSO.WalkSpeed;
+
     }
 
+    // рџ”Ґ Input
     public void OnMove(InputValue value)
     {
-        _moveInput = value.Get<Vector2>();
-        Debug.Log("Р’РµРєС‚РѕСЂ РґРІРёР¶РµРЅРёСЏ: " + _moveInput);
+        Vector2 input = value.Get<Vector2>();
+
+        _moveInput = input.y;
+        _rotationInput = input.x;
     }
 
     public void OnMoveCanceled(InputValue value)
     {
-        _moveInput = Vector2.zero;
+        _moveInput = 0f;
+        _rotationInput = 0f;
     }
-
 
     private void FixedUpdate()
     {
         Move();
 
-        // Обчислюємо "реальну" швидкість по зміні позиції між FixedUpdate викликами
         Vector2 newPos = _rb.position;
         lastFrameVelocity = (newPos - prevPosition) / Time.fixedDeltaTime;
         prevPosition = newPos;
-
-        if (!Mouse.current.leftButton.isPressed)
-        {
-            RotateToMovement();
-        }
     }
-
-
 
     private void Update()
     {
-        FlipToMouse();
+        RotateByInput();
         UpdateAnimations();
 
-        // використовуємо magnitude (не sqrMagnitude) для порогу — зручніше читати
         float speed = lastFrameVelocity.magnitude;
-
-        // Debug для налагодження — прибери коли все ок
-       // Debug.Log($"vel: {speed:F4}, stationaryTimer: {stationaryTimer:F3}");
 
         if (speed > movementThreshold)
         {
-            // є рух — скидаємо таймер і вмикаємо двигун
             stationaryTimer = 0f;
             SetEngineIfNeeded(true);
+            SetParticles(true);
         }
         else
         {
-            // немає руху — накопичуємо час без руху
             stationaryTimer += Time.deltaTime;
 
             if (stationaryTimer >= stopDelay)
+            {
                 SetEngineIfNeeded(false);
+                SetParticles(false);
+            }
             else
-                SetEngineIfNeeded(true); // поки не пройшов stopDelay — вважай що ще рух
+            {
+                SetEngineIfNeeded(true);
+                SetParticles(true);
+            }
         }
-
     }
+
+    // рџ”Ґ Р’РђР–РљРР™ Р РЈРҐ (СЃРёР»СЊРЅР° С–РЅРµСЂС†С–СЏ)
+    private void Move()
+    {
+        float targetVelocity = _moveInput * _currentSpeed;
+
+        float accel = Mathf.Abs(targetVelocity) > Mathf.Abs(_currentVelocity)
+            ? _acceleration
+            : _deceleration;
+
+        _currentVelocity = Mathf.MoveTowards(
+            _currentVelocity,
+            targetVelocity,
+            accel * Time.fixedDeltaTime
+        );
+
+        // С‰РѕР± РЅРµ РїРѕРІР·Р»Рѕ РІС–С‡РЅРѕ
+        if (Mathf.Abs(_currentVelocity) < 0.01f)
+            _currentVelocity = 0f;
+
+        Vector2 forward = transform.right;
+        Vector2 move = forward * _currentVelocity;
+
+        _rb.MovePosition(_rb.position + move * Time.fixedDeltaTime);
+    }
+
+    // рџ”Ґ Р›Р•Р“РљРР™ РџРћР’РћР РћРў (РјРµРЅС€Рµ С–РЅРµСЂС†С–С—)
+    private void RotateByInput()
+    {
+        float targetRotationSpeed = _rotationInput * _rotationSpeed;
+
+        // рџ”Ґ С€РІРёРґРєРѕ СЃС‚Р°СЂС‚СѓС” С– С‰Рµ С€РІРёРґС€Рµ Р·СѓРїРёРЅСЏС”С‚СЊСЃСЏ
+        float accel = Mathf.Abs(_rotationInput) > 0.01f
+            ? _rotationAcceleration          // РєРѕР»Рё РєСЂСѓС‚РёРјРѕ
+            : _rotationAcceleration * 2f;    // РєРѕР»Рё РІС–РґРїСѓСЃС‚РёР»Рё вЂ” СЃС‚РѕРї РјРёС‚С‚С”РІРѕ
+
+        _currentRotationSpeed = Mathf.MoveTowards(
+            _currentRotationSpeed,
+            targetRotationSpeed,
+            accel * Time.deltaTime
+        );
+
+        transform.Rotate(0f, 0f, -_currentRotationSpeed * Time.deltaTime);
+    }
+
+    private void UpdateAnimations()
+    {
+        float normalizedSpeed = Mathf.InverseLerp(0, _currentSpeed, Mathf.Abs(_currentVelocity));
+
+        if (_animator != null)
+            _animator.SetFloat("Speed", normalizedSpeed);
+    }
+
     private void SetEngineIfNeeded(bool state)
     {
         if (AudioManager.Instanse == null) return;
@@ -104,46 +167,20 @@ public class PlayerController : MonoBehaviour
         AudioManager.Instanse.SetEngineState(state);
     }
 
-    private void FlipToMouse()
+    private void SetParticles(bool state)
     {
-        Vector3 mouseScreen = Mouse.current.position.ReadValue();
-        mouseScreen.z = Mathf.Abs(Camera.main.transform.position.z);
-
-        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
-
-        Vector2 direction = mouseWorld - transform.position;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-    }
-
-    private void UpdateAnimations()
-    {
-        float speed = _moveInput.magnitude;
-        // _animator.SetFloat("Speed", speed);
-    }
-
-    private void Move()
-    {
-        Vector2 forward = transform.right;
-
-        Vector2 right = new Vector2(forward.y, -forward.x);
-
-        Vector2 move = (forward * _moveInput.y + right * _moveInput.x) * _currentSpeed;
-
-        _rb.MovePosition(_rb.position + move * Time.fixedDeltaTime);
-    }
-
-    private void RotateToMovement()
-    {
-        if (_moveInput.magnitude > 0.1f)
+        foreach (var ps in _engineVFX)
         {
-            float angle = Mathf.Atan2(_moveInput.y, _moveInput.x) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10f * Time.fixedDeltaTime);
+            if (state)
+            {
+                if (!ps.isPlaying)
+                    ps.Play();
+            }
+            else
+            {
+                if (ps.isPlaying)
+                    ps.Stop();
+            }
         }
     }
-
 }
