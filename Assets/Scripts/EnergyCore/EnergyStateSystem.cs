@@ -31,6 +31,12 @@ public class EnergyStateSystem : MonoBehaviour
     {
         Instance = this;
     }
+    void Start()
+    {
+        _energyValueSlider.maxValue = _maxValue;
+        _energyValueSlider.value = EnergyValue;
+        _energyValueText.text = EnergyValue.ToString("F1");
+    }
     private void Update()
     {
         HandleEnergyIncrease();
