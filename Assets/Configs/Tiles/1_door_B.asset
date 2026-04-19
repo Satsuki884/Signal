@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d828bbcf5a3014bb9658b1a04ca695, type: 3}
+  m_Name: 1_door_B
+  m_EditorClassIdentifier: Assembly-CSharp::TileData
+  tileName: 1_door_B
+  definition:
+  - {fileID: 11400000, guid: d1fde5f1f0f9bc74b92f821b3bda5c71, type: 2}
+  locationType: 0
+  variants:
+  - locationType: 2
+    prefab: {fileID: 4702415467155673795, guid: ab450aff64b53e34aa79f597b083f386, type: 3}
+  - locationType: 3
+    prefab: {fileID: 4702415467155673795, guid: 8ebec6090dd252d4fafc7b2587b51a12, type: 3}
+  - locationType: 4
+    prefab: {fileID: 4702415467155673795, guid: bb955da13a657c84e93262a1ba2a8e58, type: 3}
+  - locationType: 1
+    prefab: {fileID: 4702415467155673795, guid: 119ed5a6923ac8441a9c55d0e608bfb0, type: 3}

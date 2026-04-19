@@ -15,11 +15,21 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _moveInput;
 
+    private Vector2 prevPosition;
+    private Vector2 lastFrameVelocity;
+
+    [SerializeField] private float movementThreshold = 0.01f; // підлаштуй: 0.01f або 0.05f
+    [SerializeField] private float stopDelay = 0.08f; // скільки секунд без руху, щоб вважати зупинку
+    private float stationaryTimer = 0f;
+    private bool lastEngineState = false;
+
     private void Awake()
     {
         if (_rb == null)
             _rb = GetComponent<Rigidbody2D>();
         transform.position = _startPoint.position;
+
+        prevPosition = _rb.position;
     }
 
     private void Start()
@@ -33,9 +43,20 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Р’РµРєС‚РѕСЂ РґРІРёР¶РµРЅРёСЏ: " + _moveInput);
     }
 
+    public void OnMoveCanceled(InputValue value)
+    {
+        _moveInput = Vector2.zero;
+    }
+
+
     private void FixedUpdate()
     {
         Move();
+
+        // Обчислюємо "реальну" швидкість по зміні позиції між FixedUpdate викликами
+        Vector2 newPos = _rb.position;
+        lastFrameVelocity = (newPos - prevPosition) / Time.fixedDeltaTime;
+        prevPosition = newPos;
 
         if (!Mouse.current.leftButton.isPressed)
         {
@@ -43,12 +64,44 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+
     private void Update()
     {
         FlipToMouse();
         UpdateAnimations();
-        bool isMoving = _moveInput.sqrMagnitude > 0.01f;
-        // audioManager.SetWalking(isMoving);
+
+        // використовуємо magnitude (не sqrMagnitude) для порогу — зручніше читати
+        float speed = lastFrameVelocity.magnitude;
+
+        // Debug для налагодження — прибери коли все ок
+       // Debug.Log($"vel: {speed:F4}, stationaryTimer: {stationaryTimer:F3}");
+
+        if (speed > movementThreshold)
+        {
+            // є рух — скидаємо таймер і вмикаємо двигун
+            stationaryTimer = 0f;
+            SetEngineIfNeeded(true);
+        }
+        else
+        {
+            // немає руху — накопичуємо час без руху
+            stationaryTimer += Time.deltaTime;
+
+            if (stationaryTimer >= stopDelay)
+                SetEngineIfNeeded(false);
+            else
+                SetEngineIfNeeded(true); // поки не пройшов stopDelay — вважай що ще рух
+        }
+
+    }
+    private void SetEngineIfNeeded(bool state)
+    {
+        if (AudioManager.Instanse == null) return;
+        if (lastEngineState == state) return;
+
+        lastEngineState = state;
+        AudioManager.Instanse.SetEngineState(state);
     }
 
     private void FlipToMouse()

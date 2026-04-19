@@ -40,11 +40,11 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Radius: 18.957277
+    - _Radius: 0
     - _Width: 5
     m_Colors:
     - _Color: {r: 0.1568627, g: 1, b: 0, a: 0.21568628}
-    - _PulsePos: {r: -0.85753, g: -1.10084, b: 0, a: 0}
+    - _PulsePos: {r: -7.3987384, g: -8.3080635, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3825281713317754025

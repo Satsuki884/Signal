@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 516235893}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -745,6 +745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   playerSO: {fileID: 11400000, guid: cedd733908c13684cb8367fc8977e4fa, type: 2}
   _startPoint: {fileID: 1269800419}
+  movementThreshold: 0.01
+  stopDelay: 0.08
 --- !u!50 &516235892
 Rigidbody2D:
   serializedVersion: 5
