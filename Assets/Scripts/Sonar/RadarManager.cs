@@ -8,7 +8,8 @@ public class RadarManager : MonoBehaviour
     [Header("Ссылки")]
     public Transform player;
     public RectTransform markerParent;
-    public GameObject markerPrefab;
+    public GameObject markerEnemyPrefab;
+    public GameObject markerLocationPrefab ;
 
     [Header("Настройки")]
     public float radarRange = 50f;
@@ -20,10 +21,37 @@ public class RadarManager : MonoBehaviour
 
     void Awake() => Instance = this;
 
-    public void Register(Transform target)
+    public void Register(Transform target, TargetType type)
     {
-        GameObject m = Instantiate(markerPrefab, markerParent);
-        targets.Add(new RadarData { target = target, marker = m.GetComponent<RectTransform>() });
+        GameObject prefab = GetPrefabByType(type);
+
+        if (prefab == null)
+        {
+            Debug.LogWarning("No prefab for type: " + type);
+            return;
+        }
+
+        GameObject m = Instantiate(prefab, markerParent);
+
+        targets.Add(new RadarData
+        {
+            target = target,
+            marker = m.GetComponent<RectTransform>()
+        });
+    }
+
+    private GameObject GetPrefabByType(TargetType type)
+    {
+        switch (type)
+        {
+            case TargetType.Enemy:
+                return markerEnemyPrefab;
+
+            case TargetType.Location:
+                return markerLocationPrefab;
+        }
+
+        return null;
     }
 
     void Update()
@@ -43,11 +71,11 @@ public class RadarManager : MonoBehaviour
             Vector2 diff = (Vector2)targets[i].target.position - (Vector2)player.position;
             float dist = diff.magnitude;
 
-            
+
             Vector2 dir = dist > 0.1f ? diff.normalized : Vector2.up;
             targets[i].marker.anchoredPosition = dir * radarSize;
 
-            
+
             float t = Mathf.Clamp01(1 - (dist / radarRange));
             targets[i].marker.localScale = Vector3.one * Mathf.Lerp(minScale, maxScale, t);
         }
