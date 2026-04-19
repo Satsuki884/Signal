@@ -4,14 +4,22 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private float _animationSpeed = 5f;
+
+    public static UIManager Instance;
+    void Awake()
+    {
+        Instance = this;
+    }
+    [SerializeField] private float _animationSpeed = 2f;
     private Coroutine _moveCoroutine;
 
     [Header("BigSonar Panels")]
     [SerializeField] private Button _bigSonarButton;
-    [SerializeField] private RectTransform _bigSonarPanel;
-    [SerializeField] private float _showBigSonarPanelX = 0f;
-    [SerializeField] private float _hideBigSonarPanelX = 325f;
+    [SerializeField] private RectTransform _bigSonarPanelRectTransform;
+    // [SerializeField] private BigSonarController _bigSonarController;
+    [SerializeField] private float _showSonarPanelX = 0f;
+    [SerializeField] private float _hideSonarPanelX = 325f;
+    [SerializeField] private float _healthPanelX = 475f;
     private bool _isBigSonarActive = false;
 
 
@@ -32,7 +40,7 @@ public class UIManager : MonoBehaviour
     {
         _bigSonarButton.onClick.RemoveAllListeners();
         _smallSonarButton.onClick.RemoveAllListeners();
-        _bigSonarButton.onClick.AddListener(() => OnButtonSonarClicked(_showBigSonarPanelX, _hideBigSonarPanelX));
+        _bigSonarButton.onClick.AddListener(() => OnButtonSonarClicked(_showSonarPanelX, _hideSonarPanelX));
         _volumeButton.onClick.AddListener(() => OnButtonVolumeClicked(_showVolumeX, _hideVolumeX));
         _smallSonarButton.onClick.AddListener(OnSmallSonarButtonClicked);
         SetPanelsPosition();
@@ -48,7 +56,7 @@ public class UIManager : MonoBehaviour
         if (_moveCoroutine != null)
             StopCoroutine(_moveCoroutine);
 
-        _moveCoroutine = StartCoroutine(MovePanel(_bigSonarPanel, targetX));
+        _moveCoroutine = StartCoroutine(MovePanel(_bigSonarPanelRectTransform, targetX));
     }
 
     private void OnButtonVolumeClicked(float showX, float hideX)
@@ -64,7 +72,7 @@ public class UIManager : MonoBehaviour
         _moveCoroutine = StartCoroutine(MovePanel(_volumePanel, targetX));
     }
 
-    private IEnumerator MovePanel(RectTransform panel, float targetX)
+    public IEnumerator MovePanel(RectTransform panel, float targetX, float animationSpeed = 2f)
     {
         Vector2 startPos = panel.anchoredPosition;
         Vector2 targetPos = new Vector2(targetX, startPos.y);
@@ -73,7 +81,7 @@ public class UIManager : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime * _animationSpeed;
+            t += Time.deltaTime * (animationSpeed != 0 ? animationSpeed : _animationSpeed);
             panel.anchoredPosition = Vector2.Lerp(startPos, targetPos, t);
             yield return null;
         }
@@ -83,8 +91,18 @@ public class UIManager : MonoBehaviour
 
     private void SetPanelsPosition()
     {
-        SetPanelPosition(_bigSonarPanel, _hideBigSonarPanelX);
+        SetPanelPosition(_bigSonarPanelRectTransform, _healthPanelX);
         SetPanelPosition(_volumePanel, _hideVolumeX);
+    }
+
+    public void ShowBigSonarPanel(bool show)
+    {
+        float targetX = show ? _hideSonarPanelX : _healthPanelX;
+
+        if (_moveCoroutine != null)
+            StopCoroutine(_moveCoroutine);
+
+        _moveCoroutine = StartCoroutine(MovePanel(_bigSonarPanelRectTransform, targetX));
     }
 
     private void SetPanelPosition(RectTransform panel, float x)
