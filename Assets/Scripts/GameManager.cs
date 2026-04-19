@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
+
+    void Start()
+    {
+        ResetPlayerData();
+    }
     [SerializeField] PlayerSO _playerSO;
 
     public PlayerSO PlayerData => _playerSO;
