@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 923831444808844160}
   - component: {fileID: 39865532001942447}
   - component: {fileID: 8153177772625745323}
-  - component: {fileID: 4637196805575960057}
-  m_Layer: 0
+  - component: {fileID: 8724320474119310771}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4637196805575960057
+--- !u!114 &8724320474119310771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7986568434675880396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0d68a4c32f2064b81f4f84b07fd0ef, type: 3}
+  m_Script: {fileID: 11500000, guid: f43926d8ba1882742902925222641f8a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RadarTarget
-  _type: 0
+  m_EditorClassIdentifier: Assembly-CSharp::DSonarTarget
+  dType: 0
