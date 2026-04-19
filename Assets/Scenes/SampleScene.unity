@@ -5435,7 +5435,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 26
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8032,7 +8032,11 @@ MonoBehaviour:
   _energyValueSlider: {fileID: 990012103}
   _energyValueText: {fileID: 1494564767}
   _energyReduseSpeedText: {fileID: 806929774}
-  EnergyValue: 100
+  _energyFullColor: {r: 1, g: 1, b: 1, a: 1}
+  _energySmallColor: {r: 1, g: 0.5641509, b: 0.5641509, a: 1}
+  _lowEnergyThreshold: 25
+  _blinkSpeed: 2
+  EnergyValue: 26
   _maxValue: 100
   _passiveReduseSpeed: 0.25
 --- !u!1 &1730257651
