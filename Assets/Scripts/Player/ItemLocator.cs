@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public class EnergyPoint : MonoBehaviour
+public class ItemLocator : MonoBehaviour
 {
-    [SerializeField] private float _energyAmount = 10f;
-
+    [SerializeField] private PlayerSO _playerSO;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            EnergyStateSystem.Instance.AddEnergy(_energyAmount);
+            _playerSO.ObtainLocator();
+            Debug.Log("Locator obtained!");
             Destroy(gameObject);
         }
     }
