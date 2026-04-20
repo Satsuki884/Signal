@@ -1,10 +1,16 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PausePanelController : MonoBehaviour
 {
+    public static PausePanelController Instance { get; private set; }
+    private void Awake()
+    {
+        Instance = this;
+    }
     [Header("Settings")]
     [SerializeField] private float _animationSpeed = 3f;
 
@@ -25,6 +31,14 @@ public class PausePanelController : MonoBehaviour
     [SerializeField] private float _rightShowX = 0f;
     [SerializeField] private float _rightHideX = 2000f;
 
+    [Header("Task")]
+    [SerializeField] private TMP_Text _taskText;
+    public void ShowTask(TaskData task)
+    {
+        if (task == null) return;
+
+        _taskText.text = $"* {task.Description}";
+    }
     private void Start()
     {
         _openPauseButton.onClick.RemoveAllListeners();
