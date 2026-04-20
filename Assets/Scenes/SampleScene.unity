@@ -545,11 +545,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42240835}
   m_CullTransparentMesh: 1
---- !u!4 &47482088 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5687938743586594088, guid: 6e12b5c15e851ce40b0e83c2b15e661e, type: 3}
-  m_PrefabInstance: {fileID: 1532794122}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &50786204
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +692,7 @@ Transform:
   - {fileID: 825491594}
   - {fileID: 547756530}
   - {fileID: 1217846338}
-  - {fileID: 47482088}
+  - {fileID: 917075665}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &115182705
@@ -823,7 +818,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: a338a413489ea034f87244da48883eb7, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -847,8 +842,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.06026569, y: -0.010528356}
-  m_Radius: 0.3930466
+  m_Offset: {x: -0.049220473, y: 0}
+  m_Radius: 0.35233822
 --- !u!1001 &134657624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6640,6 +6635,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6370830151417356678, guid: 47708a7b5749ffc439dc08095d624dd5, type: 3}
   m_PrefabInstance: {fileID: 913851615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &917075665 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5687938743586594088, guid: 6e12b5c15e851ce40b0e83c2b15e661e, type: 3}
+  m_PrefabInstance: {fileID: 1532794122}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &927221050
 GameObject:
@@ -14512,10 +14512,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7298076102043101354, guid: 3163b880d6621e84591e7105cef5b252, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: a338a413489ea034f87244da48883eb7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
