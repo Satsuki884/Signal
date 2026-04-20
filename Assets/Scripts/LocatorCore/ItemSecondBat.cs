@@ -10,7 +10,7 @@ public class ItemSecondBat : MonoBehaviour
             if (AudioManager.Instanse != null && AudioManager.Instanse.interact != null)
                 AudioManager.Instanse.PlaySFX(AudioManager.Instanse.interact);
 
-            GameManager.Instance.ObtainLocator();
+            GameManager.Instance.ObtainSecondBattery();
             Debug.Log("Locator obtained!");
             Destroy(gameObject);
         }
