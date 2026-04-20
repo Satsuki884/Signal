@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        RotateByInputFixed(); // Вращаем тут!
 
         Vector2 newPos = _rb.position;
         lastFrameVelocity = (newPos - prevPosition) / Time.fixedDeltaTime;
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        RotateByInput();
+        // Оставляем в Update только визуал и логику анимаций
         UpdateAnimations();
 
         float speed = lastFrameVelocity.magnitude;
@@ -132,22 +133,22 @@ public class PlayerController : MonoBehaviour
     }
 
     // 🔥 ЛЕГКИЙ ПОВОРОТ (менше інерції)
-    private void RotateByInput()
+    private void RotateByInputFixed()
     {
         float targetRotationSpeed = _rotationInput * _rotationSpeed;
 
-        // 🔥 швидко стартує і ще швидше зупиняється
         float accel = Mathf.Abs(_rotationInput) > 0.01f
-            ? _rotationAcceleration          // коли крутимо
-            : _rotationAcceleration * 2f;    // коли відпустили — стоп миттєво
+            ? _rotationAcceleration
+            : _rotationAcceleration * 2f;
 
         _currentRotationSpeed = Mathf.MoveTowards(
             _currentRotationSpeed,
             targetRotationSpeed,
-            accel * Time.deltaTime
+            accel * Time.fixedDeltaTime // Заменили Time.deltaTime на Time.fixedDeltaTime
         );
 
-        transform.Rotate(0f, 0f, -_currentRotationSpeed * Time.deltaTime);
+        // Крутим физическое тело, а не трансформ!
+        _rb.MoveRotation(_rb.rotation - _currentRotationSpeed * Time.fixedDeltaTime);
     }
 
     private void UpdateAnimations()
