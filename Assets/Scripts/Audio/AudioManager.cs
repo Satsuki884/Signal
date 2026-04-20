@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource SFXSource;
     [SerializeField] private AudioSource engineSource;
-
+ 
     [SerializeField] private AudioMixer audioMixer;
 
     [Header("---Audio Clip---")]
@@ -23,11 +23,21 @@ public class AudioManager : MonoBehaviour
     public AudioClip SubWalk;
     public AudioClip Sonar;
     public AudioClip Enemy_alarm;
-    public AudioClip Enemy_scream;
+
+
     public AudioClip LowBat;
     public AudioClip interact;
     public AudioClip death;
     public AudioClip[] hit;
+
+    [Header("---Enemy Clips---")]
+    public AudioClip enemyBreathClip;
+    public AudioClip enemyAggroClip;
+    public AudioClip enemyAttackClip;
+    [Header("---Enemy Volume Multipliers---")]
+    public float enemyBreathVolumeMultiplier = 2f;
+
+
     // Engine sound state
     private Coroutine engineCoroutine;
     private bool isEngineRunning;
@@ -150,4 +160,78 @@ public class AudioManager : MonoBehaviour
 
         engineCoroutine = null;
     }
+    // AudioManager.cs — додати метод
+    public void PlaySFXAtPosition(AudioClip clip, Vector3 position, float volume = 1f, float spatialBlend = 0f)
+    {
+        if (clip == null) return;
+
+        // Якщо є SFXSource і він прив'язаний до MixerGroup, використаємо його для PlayOneShot (не позиційно)
+        // Для позиційного звучання створимо тимчасовий AudioSource, але встановимо той самий outputAudioMixerGroup
+        if (SFXSource != null && SFXSource.outputAudioMixerGroup != null)
+        {
+            // Якщо spatialBlend == 0 — просто PlayOneShot через SFXSource (не позиційно)
+            if (Mathf.Approximately(spatialBlend, 0f))
+            {
+                SFXSource.PlayOneShot(clip, Mathf.Clamp01(volume));
+                return;
+            }
+
+            // Інакше — тимчасовий AudioSource для позиційного звучання, але з тим же MixerGroup
+            GameObject go = new GameObject("TempSFX");
+            go.transform.position = position;
+            var src = go.AddComponent<AudioSource>();
+            src.clip = clip;
+            src.volume = Mathf.Clamp01(volume);
+            src.spatialBlend = Mathf.Clamp01(spatialBlend); // 0..1
+            src.outputAudioMixerGroup = SFXSource.outputAudioMixerGroup;
+            src.Play();
+            Object.Destroy(go, clip.length + 0.1f);
+            return;
+        }
+
+        // Фолбек: якщо SFXSource не налаштований — використовуємо PlayClipAtPoint (старий варіант)
+        AudioSource.PlayClipAtPoint(clip, position, Mathf.Clamp01(volume));
+    }
+
+    [ContextMenu("Test Play Aggro")]
+    private void TestPlayAggro()
+    {
+        if (enemyAggroClip != null) PlaySFXAtPosition(enemyAggroClip, Camera.main != null ? Camera.main.transform.position : Vector3.zero, 1f, 0f);
+        else Debug.LogWarning("enemyAggroClip is null in AudioManager");
+    }
+
+    // Alarm playback (reliable PlayOneShot) + cooldown
+    private float lastAlarmTime = -Mathf.Infinity;
+    public float alarmCooldown = 1f; // seconds between alarms
+
+    public void PlayEnemyAlarm(float volume = 1f)
+    {
+        if (Enemy_alarm == null) return;
+
+        if (SFXSource != null)
+        {
+            SFXSource.PlayOneShot(Enemy_alarm, Mathf.Clamp01(volume));
+            return;
+        }
+
+        AudioSource.PlayClipAtPoint(Enemy_alarm, Camera.main != null ? Camera.main.transform.position : Vector3.zero, Mathf.Clamp01(volume));
+    }
+
+    public void PlayEnemyAlarmWithCooldown(float volume = 1f)
+    {
+        if (Time.time - lastAlarmTime < alarmCooldown) return;
+        lastAlarmTime = Time.time;
+        PlayEnemyAlarm(volume);
+    }
+
+    [ContextMenu("Test Play Enemy Alarm")]
+    private void TestPlayEnemyAlarm()
+    {
+        if (Enemy_alarm != null)
+            PlayEnemyAlarm(1f);
+        else
+            Debug.LogWarning("TestPlayEnemyAlarm: Enemy_alarm is null in AudioManager");
+    }
+
+
 }

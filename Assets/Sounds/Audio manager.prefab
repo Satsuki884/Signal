@@ -313,7 +313,6 @@ MonoBehaviour:
   SubWalk: {fileID: 8300000, guid: dd544966c138ea54b96d39fff568987c, type: 3}
   Sonar: {fileID: 8300000, guid: 745a2af7dcaa37b48870790287b6e576, type: 3}
   Enemy_alarm: {fileID: 8300000, guid: 6f66f359f855c9b499ee9be9e9cc73e6, type: 3}
-  Enemy_scream: {fileID: 8300000, guid: a469584fe9375504a97973bda5e69653, type: 3}
   LowBat: {fileID: 8300000, guid: 68b98b6cf843b9e46b475c3d3d6ca8ab, type: 3}
   interact: {fileID: 8300000, guid: 6b5b9f1a55b46fa4aa05bc985768746b, type: 3}
   death: {fileID: 8300000, guid: f862d351ebaa37746aeff6256db86fd1, type: 3}
@@ -321,6 +320,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7e7711cba7240b3409b2c12807aaa4c7, type: 3}
   - {fileID: 8300000, guid: c34c54077d3b4a540ac922078423438f, type: 3}
   - {fileID: 8300000, guid: 58ba4ecd338697e46ab322bb5c2c68ef, type: 3}
+  enemyBreathClip: {fileID: 8300000, guid: aa13953c47448564daabc371f7cd21aa, type: 3}
+  enemyAggroClip: {fileID: 8300000, guid: a9f9b83cc55ea204999d5f8ac57a0066, type: 3}
+  enemyAttackClip: {fileID: 8300000, guid: a469584fe9375504a97973bda5e69653, type: 3}
 --- !u!1 &7671026133840222679
 GameObject:
   m_ObjectHideFlags: 0
