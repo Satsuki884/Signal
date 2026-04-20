@@ -19,12 +19,19 @@ public class DSonarScanner : MonoBehaviour
 
     void Update()
     {
-
+        // Проверяем нажатие R
         if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
+            // 🔥 ПРОВЕРКА: Идём в GameManager -> PlayerData -> проверяем флаг HasBigSonar
+            if (GameManager.Instance == null || GameManager.Instance.PlayerData == null || !GameManager.Instance.PlayerData.HasBigSonar)
+            {
+                Debug.Log("<color=red>[DSonarScanner]</color> Сонар еще не установлен на корабль! Найди предмет.");
+                return; // Тормозим выполнение, скан не запускается
+            }
+
+            // Проверка кулдауна
             if (Time.time >= dLastScanTime + dScanCooldown)
             {
-
                 if (EnergyStateSystem.Instance != null)
                 {
                     EnergyStateSystem.Instance.ReduceEnergy(10f);
@@ -37,7 +44,7 @@ public class DSonarScanner : MonoBehaviour
             else
             {
                 float dWait = (dLastScanTime + dScanCooldown) - Time.time;
-                Debug.Log($"<color=orange>[DSonarScanner]</color> Сонор перезаряжается! Жди {dWait:F1} сек.");
+                Debug.Log($"<color=orange>[DSonarScanner]</color> Сонар перезаряжается! Жди {dWait:F1} сек.");
             }
         }
     }
