@@ -83,6 +83,21 @@ public class GameManager : MonoBehaviour
         TaskManager.Instance?.CompleteTaskById("TaskData_Collect_big_sonar");
     }
 
+    public void ObtainFirstBattery()
+    {
+        if (_playerSO == null) return;
+
+        _playerSO.HasFirstBattery = true;
+        TaskManager.Instance?.CompleteTaskById("TaskData_Collect_FirstBat");
+    }
+    public void ObtainSecondBattery()
+    {
+        if (_playerSO == null) return;
+
+        _playerSO.HasSecondBattery = true;
+        TaskManager.Instance?.CompleteTaskById("TaskData_Investigate_SecondBat");
+    }
+
     public void ResetPlayerData()
     {
         if (_playerSO == null) return;
