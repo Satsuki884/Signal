@@ -24,6 +24,16 @@ public class SonarController : MonoBehaviour
     public event Action<bool> OnSonarStateChanged;
     public bool IsOn => isToggledOn;
 
+    void Start()
+    {
+        ResetSonar();
+    }
+
+    void OnDisable()
+    {
+        ResetSonar();
+    }
+
     void Update()
     {
         if (sonarMat == null) return;
