@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Patrol Settings")]
     public float patrolRadius = 5f;
     public float patrolSpeed = 1.5f;
+    public float attackAngle = 60f;
     public float patrolWaitTime = 2f;
 
     [Header("Attack Timings")]
@@ -182,6 +183,28 @@ public class EnemyAI : MonoBehaviour
     }
 
 
+
+    private bool IsPlayerInAttackCone(float maxDistance)
+    {
+        float distToPlayer = Vector2.Distance(transform.position, player.position);
+        if (distToPlayer > maxDistance) return false; // Слишком далеко
+
+        // Находим вектор на игрока
+        Vector2 dirToPlayer = player.position - transform.position;
+        // Считаем угол до игрока
+        float angleToPlayer = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
+
+        // Подгоняем под твой спрайт (чтобы "морда" считалась передом)
+        float idealAngle = angleToPlayer + spriteForwardAngle;
+
+        // Считаем разницу между тем, куда враг смотрит сейчас, и где стоит игрок
+        float angleDiff = Mathf.DeltaAngle(transform.eulerAngles.z, idealAngle);
+
+        // Если игрок в пределах половины нашего угла атаки — значит он перед мордой
+        return Mathf.Abs(angleDiff) <= attackAngle / 2f;
+    }
+
+
     private void ChaseBehavior(float distToPlayer)
     {
         if (anim != null) anim.Play("Move");
@@ -192,8 +215,8 @@ public class EnemyAI : MonoBehaviour
         // поворот до напрямку руху (голова вперед)
         RotateTowards(player.position);
 
-
-        if (distToPlayer <= attackRadius && currentState == EnemyState.Chase)
+        // 🔥 ИЗМЕНЕНО: Теперь кусаем только если игрок близко И перед мордой
+        if (IsPlayerInAttackCone(attackRadius) && currentState == EnemyState.Chase)
         {
             StartAttack();
         }
@@ -263,8 +286,9 @@ public class EnemyAI : MonoBehaviour
     {
         yield return new WaitForSeconds(attackDamageDelay);
 
-        float distToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distToPlayer <= attackRadius + 0.5f)
+        // 🔥 ИЗМЕНЕНО: Проверяем конус еще раз в момент самого укуса! 
+        // Если игрок увернулся за спину — урон не проходит.
+        if (IsPlayerInAttackCone(attackRadius + 0.5f))
         {
             GameManager.Instance.TakeDamage(1);
         }
