@@ -22,7 +22,7 @@ public class PlayerEnemyAlert : MonoBehaviour
             CheckForEnemies();
         }
 
-        // якщо ворог≥в не бачили довше graceTime Ч скидаЇмо стан alerted (щоб звук м≥г програти знову п≥зн≥ше)
+        // якщо ворог≥в не бачили довше graceTime Ч скидаЇмо стан alerted
         if (isAlerted && Time.time - lastEnemySeenTime >= graceTime)
         {
             isAlerted = false;
@@ -32,11 +32,13 @@ public class PlayerEnemyAlert : MonoBehaviour
     private void CheckForEnemies()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, alertRadius, enemyLayer);
+#if UNITY_EDITOR
+        Debug.Log($"PlayerEnemyAlert: CheckForEnemies found {(hits != null ? hits.Length : 0)} hits");
+#endif
         if (hits != null && hits.Length > 0)
         {
             lastEnemySeenTime = Time.time;
 
-            // якщо ще не були в alerted стан≥ ≥ пройшов cooldown з останнього програванн€ Ч граЇмо звук один раз
             if (!isAlerted && Time.time - lastPlayedTime >= replayCooldown)
             {
                 PlayAlertSoundOnce();
@@ -48,13 +50,16 @@ public class PlayerEnemyAlert : MonoBehaviour
 
     private void PlayAlertSoundOnce()
     {
-        if (AudioManager.Instanse == null) return;
-
-        // ¬икористовуЇмо одноразове в≥дтворенн€ через SFXSource (PlayOneShot)
-        if (AudioManager.Instanse.Enemy_alarm != null)
+        if (AudioManager.Instanse == null)
         {
-            AudioManager.Instanse.PlaySFX(AudioManager.Instanse.Enemy_alarm);
+            Debug.LogWarning("PlayerEnemyAlert: AudioManager.Instanse is null");
+            return;
         }
+
+#if UNITY_EDITOR
+        Debug.Log("PlayerEnemyAlert: Playing Enemy_alarm");
+#endif
+        AudioManager.Instanse.PlayEnemyAlarmWithCooldown(1f);
     }
 
     private void OnDrawGizmosSelected()

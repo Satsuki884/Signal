@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -26,26 +26,33 @@ public class EnemyAI : MonoBehaviour
     public float breathRadius = 15f;
     public float minBreathTime = 5f;
     public float maxBreathTime = 15f;
+    public float breathCooldown = 1f;
 
     [Header("Components")]
     public Transform player;
     public Animator anim;
     public SpriteRenderer spriteRenderer;
 
-    [Header("Audio")]
-    public AudioSource breathSource;
-    public AudioSource sfxSource;
-    public AudioClip breathClip;
-    public AudioClip aggroClip;
-    public AudioClip attackClip;
+    [Header("Audio (local sources optional)")]
+    public AudioSource breathSource; // optional fallback
+    public AudioSource sfxSource;    // optional fallback
 
+    [Header("Debug")]
+    public bool debugDrawAlways = false;
+
+    // internal
     private Coroutine attackRoutine;
     private bool isSonarAggroed;
-
     private Vector2 startPosition;
     private Vector2 patrolTarget;
     private float patrolWaitTimer;
     private bool isWaiting;
+
+    // breathing control
+    private float lastBreathTime = -Mathf.Infinity;
+
+    // ensure aggro sound plays only once per chase entry
+    private bool aggroPlayed = false;
 
     void Start()
     {
@@ -53,6 +60,15 @@ public class EnemyAI : MonoBehaviour
         {
             GameObject p = GameObject.FindGameObjectWithTag("Player");
             if (p != null) player = p.transform;
+        }
+
+        if (AudioManager.Instanse == null)
+        {
+            Debug.LogWarning($"AudioManager not found in scene. Enemy {name} will use local audio fallback.");
+        }
+        else
+        {
+           
         }
 
         startPosition = transform.position;
@@ -92,32 +108,46 @@ public class EnemyAI : MonoBehaviour
 
             float dist = Vector2.Distance(transform.position, player.position);
 
-            if (dist <= breathRadius)
+            if (dist <= breathRadius && Time.time - lastBreathTime >= breathCooldown)
             {
-                float volume = 1f - (dist / breathRadius);
-                breathSource.volume = Mathf.Clamp(volume, 0f, 1f);
+                lastBreathTime = Time.time;
 
-                if (breathClip != null)
+                // Базова гучність залежно від відстані
+                float volume = 1f - Mathf.Clamp01(dist / breathRadius);
+
+                // Отримуємо множник з AudioManager (fallback = 1)
+                float multiplier = 1f;
+                if (AudioManager.Instanse != null)
+                    multiplier = AudioManager.Instanse.enemyBreathVolumeMultiplier;
+
+                // Підсилюємо і обмежуємо в діапазоні 0..1
+                float finalVolume = Mathf.Clamp01(volume * multiplier);
+
+                if (AudioManager.Instanse != null && AudioManager.Instanse.enemyBreathClip != null)
                 {
-                    breathSource.PlayOneShot(breathClip);
+                    // positional breathing sound
+                    AudioManager.Instanse.PlaySFXAtPosition(AudioManager.Instanse.enemyBreathClip, transform.position, finalVolume, 1f);
+                }
+                else if (breathSource != null && breathSource.clip != null)
+                {
+                    breathSource.PlayOneShot(breathSource.clip, finalVolume);
                 }
             }
         }
     }
 
+
     private void PatrolBehavior(float distToPlayer)
     {
-
         if (distToPlayer <= aggroRadius || isSonarAggroed)
         {
             StartChase();
             return;
         }
 
-
         if (isWaiting)
         {
-            anim.Play("Idle");
+            if (anim != null) anim.Play("Idle");
             patrolWaitTimer -= Time.deltaTime;
 
             if (patrolWaitTimer <= 0)
@@ -128,7 +158,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            anim.Play("Move");
+            if (anim != null) anim.Play("Move");
 
             transform.position = Vector2.MoveTowards(transform.position, patrolTarget, patrolSpeed * Time.deltaTime);
 
@@ -143,14 +173,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void SetNewPatrolTarget()
-    {
-        patrolTarget = startPosition + Random.insideUnitCircle * patrolRadius;
-    }
-
     private void ChaseBehavior(float distToPlayer)
     {
-        anim.Play("Move");
+        if (anim != null) anim.Play("Move");
 
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
 
@@ -170,8 +195,25 @@ public class EnemyAI : MonoBehaviour
     private void StartChase()
     {
         currentState = EnemyState.Chase;
-        if (sfxSource && aggroClip) sfxSource.PlayOneShot(aggroClip);
+
+        if (!aggroPlayed)
+        {
+            aggroPlayed = true; // гарантуємо, що агро‑звук грає лише один раз при вході в Chase
+
+            var am = AudioManager.Instanse;
+
+            if (am != null && am.enemyAggroClip != null)
+            {
+                // spatialBlend = 0f → не позиційний (PlayOneShot через SFXSource)
+                am.PlaySFXAtPosition(am.enemyAggroClip, transform.position, 1f, 0f);
+            }
+            else if (sfxSource != null && sfxSource.clip != null)
+            {
+                sfxSource.PlayOneShot(sfxSource.clip);
+            }
+        }
     }
+
 
     private void StartPatrol()
     {
@@ -181,6 +223,8 @@ public class EnemyAI : MonoBehaviour
         isWaiting = true;
         patrolWaitTimer = patrolWaitTime;
         SetNewPatrolTarget();
+
+        aggroPlayed = false;
     }
 
     private void StartAttack()
@@ -188,9 +232,16 @@ public class EnemyAI : MonoBehaviour
         if (currentState == EnemyState.Attack || currentState == EnemyState.Cooldown) return;
 
         currentState = EnemyState.Attack;
-        anim.Play("Attack");
+        if (anim != null) anim.Play("Attack");
 
-        if (sfxSource && attackClip) sfxSource.PlayOneShot(attackClip);
+        if (AudioManager.Instanse != null && AudioManager.Instanse.enemyAttackClip != null)
+        {
+            AudioManager.Instanse.PlaySFXAtPosition(AudioManager.Instanse.enemyAttackClip, transform.position, 1f, 0f);
+        }
+        else if (sfxSource != null && sfxSource.clip != null)
+        {
+            sfxSource.PlayOneShot(sfxSource.clip);
+        }
 
         if (attackRoutine != null) StopCoroutine(attackRoutine);
         attackRoutine = StartCoroutine(AttackSequence());
@@ -207,7 +258,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         currentState = EnemyState.Cooldown;
-        anim.Play("Idle");
+        if (anim != null) anim.Play("Idle");
         yield return new WaitForSeconds(postAttackCooldown);
 
         currentState = EnemyState.Chase;
@@ -224,5 +275,30 @@ public class EnemyAI : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         isSonarAggroed = false;
+    }
+
+    private void SetNewPatrolTarget()
+    {
+        patrolTarget = startPosition + Random.insideUnitCircle * patrolRadius;
+    }
+
+    private void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        bool isSelected = UnityEditor.Selection.Contains(gameObject);
+#else
+        bool isSelected = false;
+#endif
+
+        if (!debugDrawAlways && !isSelected) return;
+
+        Gizmos.color = new Color(1f, 0f, 0f, 0.15f);
+        Gizmos.DrawWireSphere(transform.position, aggroRadius);
+
+        Gizmos.color = new Color(0f, 0.5f, 1f, 0.12f);
+        Gizmos.DrawWireSphere(transform.position, breathRadius);
+
+        Gizmos.color = new Color(1f, 0.9f, 0f, 0.12f);
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 }
