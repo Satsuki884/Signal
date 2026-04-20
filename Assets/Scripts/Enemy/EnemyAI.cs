@@ -7,8 +7,8 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Rotation")]
     public bool rotateTowardsMovement = true;
-    public float rotationSpeed = 720f; // градусів/сек (високе значення ≈ миттєво)
-    public float spriteForwardAngle = 90f; // якщо спрайт "дивиться" не вправо, підкоригуй (наприклад 90)
+    public float rotationSpeed = 180f; // градусів/сек (високе значення ≈ миттєво)
+    public float spriteForwardAngle = 270f; // якщо спрайт "дивиться" не вправо, підкоригуй (наприклад 90)
 
 
     [Header("State")]
@@ -164,12 +164,7 @@ public class EnemyAI : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, patrolTarget, patrolSpeed * Time.deltaTime);
 
             // поворот до напрямку руху
-            Vector2 dir = (patrolTarget - (Vector2)transform.position);
-            if (dir.sqrMagnitude > 0.0001f)
-            {
-                float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + spriteForwardAngle;
-                transform.rotation = Quaternion.Euler(0f, 0f, targetAngle); // форсований поворот
-            }
+            RotateTowards(patrolTarget);
 
 
             if (Vector2.Distance(transform.position, patrolTarget) < 0.1f)
@@ -195,12 +190,7 @@ public class EnemyAI : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
 
         // поворот до напрямку руху (голова вперед)
-        Vector2 dir = ((Vector2)player.position - (Vector2)transform.position);
-        if (dir.sqrMagnitude > 0.0001f)
-        {
-            float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + spriteForwardAngle;
-            transform.rotation = Quaternion.Euler(0f, 0f, targetAngle); // форсований поворот
-        }
+        RotateTowards(player.position);
 
 
         if (distToPlayer <= attackRadius && currentState == EnemyState.Chase)
