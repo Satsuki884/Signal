@@ -9933,7 +9933,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 39865532001942447, guid: 47708a7b5749ffc439dc08095d624dd5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13733,7 +13734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 474.99994, y: 0}
+  m_AnchoredPosition: {x: 475, y: 0}
   m_SizeDelta: {x: 600, y: 500}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1928816827
