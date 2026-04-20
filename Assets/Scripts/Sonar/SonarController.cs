@@ -16,12 +16,12 @@ public class SonarController : MonoBehaviour
 
     [SerializeField] private float maxRadius = 50f;
     [SerializeField] private float speed = 15f;
+    [SerializeField] private float aggroDuration = 15f;
 
     private float currentRadius;
     private bool isToggledOn;
 
     public event Action<bool> OnSonarStateChanged;
-
     public bool IsOn => isToggledOn;
 
     void Update()
@@ -39,7 +39,10 @@ public class SonarController : MonoBehaviour
             sonarMat.SetVector("_PulsePos", playerPos);
             if (backgroundMat != null) backgroundMat.SetVector("_PulsePos", playerPos);
 
+            float previousRadius = currentRadius;
             currentRadius += Time.deltaTime * speed;
+
+            CheckEnemiesInWave(previousRadius, currentRadius);
 
             if (currentRadius > maxRadius)
                 currentRadius = 0f;
@@ -47,6 +50,23 @@ public class SonarController : MonoBehaviour
             UpdateRadius(currentRadius);
         }
     }
+
+    private void CheckEnemiesInWave(float minR, float maxR)
+    {
+        EnemyAI[] enemies = FindObjectsOfType<EnemyAI>();
+
+        foreach (var enemy in enemies)
+        {
+
+            float dist = Vector2.Distance(transform.position, enemy.transform.position);
+
+            if (dist >= minR && dist <= maxR)
+            {
+                enemy.TriggerSonarAggro(aggroDuration);
+            }
+        }
+    }
+
 
     public void ToggleSonar()
     {
