@@ -5,6 +5,12 @@ public class EnemyAI : MonoBehaviour
 {
     public enum EnemyState { Patrol, Chase, Attack, Cooldown }
 
+    [Header("Rotation")]
+    public bool rotateTowardsMovement = true;
+    public float rotationSpeed = 720f; // градусів/сек (високе значення ≈ миттєво)
+    public float spriteForwardAngle = 90f; // якщо спрайт "дивиться" не вправо, підкоригуй (наприклад 90)
+
+
     [Header("State")]
     public EnemyState currentState = EnemyState.Patrol;
 
@@ -139,12 +145,6 @@ public class EnemyAI : MonoBehaviour
 
     private void PatrolBehavior(float distToPlayer)
     {
-        if (distToPlayer <= aggroRadius || isSonarAggroed)
-        {
-            StartChase();
-            return;
-        }
-
         if (isWaiting)
         {
             if (anim != null) anim.Play("Idle");
@@ -160,10 +160,17 @@ public class EnemyAI : MonoBehaviour
         {
             if (anim != null) anim.Play("Move");
 
+            // рух
             transform.position = Vector2.MoveTowards(transform.position, patrolTarget, patrolSpeed * Time.deltaTime);
 
-            if (spriteRenderer != null)
-                spriteRenderer.flipX = patrolTarget.x < transform.position.x;
+            // поворот до напрямку руху
+            Vector2 dir = (patrolTarget - (Vector2)transform.position);
+            if (dir.sqrMagnitude > 0.0001f)
+            {
+                float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + spriteForwardAngle;
+                transform.rotation = Quaternion.Euler(0f, 0f, targetAngle); // форсований поворот
+            }
+
 
             if (Vector2.Distance(transform.position, patrolTarget) < 0.1f)
             {
@@ -171,16 +178,30 @@ public class EnemyAI : MonoBehaviour
                 patrolWaitTimer = patrolWaitTime;
             }
         }
+
+        if (distToPlayer <= aggroRadius || isSonarAggroed)
+        {
+            StartChase();
+            return;
+        }
     }
+
 
     private void ChaseBehavior(float distToPlayer)
     {
         if (anim != null) anim.Play("Move");
 
+        // рух до гравця
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
 
-        if (spriteRenderer != null)
-            spriteRenderer.flipX = player.position.x < transform.position.x;
+        // поворот до напрямку руху (голова вперед)
+        Vector2 dir = ((Vector2)player.position - (Vector2)transform.position);
+        if (dir.sqrMagnitude > 0.0001f)
+        {
+            float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + spriteForwardAngle;
+            transform.rotation = Quaternion.Euler(0f, 0f, targetAngle); // форсований поворот
+        }
+
 
         if (distToPlayer <= attackRadius && currentState == EnemyState.Chase)
         {
@@ -191,6 +212,7 @@ public class EnemyAI : MonoBehaviour
             StartPatrol();
         }
     }
+
 
     private void StartChase()
     {
@@ -301,4 +323,18 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = new Color(1f, 0.9f, 0f, 0.12f);
         Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
+    private void RotateTowards(Vector2 targetPosition)
+    {
+        if (!rotateTowardsMovement) return;
+
+        Vector2 dir = (targetPosition - (Vector2)transform.position);
+        if (dir.sqrMagnitude < 0.0001f) return; // занадто близько — не крутити
+
+        float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + spriteForwardAngle;
+        // Плавний поворот
+        float currentAngle = transform.eulerAngles.z;
+        float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0f, 0f, newAngle);
+    }
+
 }
