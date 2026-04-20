@@ -24,6 +24,12 @@ public class DSonarScanner : MonoBehaviour
         {
             if (Time.time >= dLastScanTime + dScanCooldown)
             {
+
+                if (EnergyStateSystem.Instance != null)
+                {
+                    EnergyStateSystem.Instance.ReduceEnergy(10f);
+                }
+
                 Debug.Log("<color=yellow>[DSonarScanner]</color> Кнопка R нажата! Запуск...");
                 dLastScanTime = Time.time;
                 DScanEnvironment();
