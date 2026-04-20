@@ -1,10 +1,10 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    // cooldown м≥ж звуками пошкодженн€ (щоб не спамити)
     [SerializeField] private float hitSoundCooldown = 0.15f;
     private float lastHitSoundTime = -1f;
 
@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            // якщо потр≥бно збер≥гати м≥ж сценами:
-            // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -35,15 +33,12 @@ public class GameManager : MonoBehaviour
     {
         if (_playerSO == null) return;
 
-        // Ќаносимо шкоду
         _playerSO.CurrentHealth -= damage;
         if (_playerSO.CurrentHealth < 0) _playerSO.CurrentHealth = 0;
 
-        // ќновлюЇмо UI здоров'€
         if (HealthController.Instance != null)
             HealthController.Instance.UpdateHealth(_playerSO.CurrentHealth);
 
-        // якщо гравець помер Ч в≥дтворюЇмо звук смерт≥ (один раз) ≥ викликаЇмо GameOver
         if (_playerSO.CurrentHealth == 0)
         {
             if (AudioManager.Instanse != null && AudioManager.Instanse.death != null)
@@ -57,7 +52,6 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // ≤накше Ч в≥дтворюЇмо випадковий звук попаданн€ (з cooldown)
         if (AudioManager.Instanse != null && AudioManager.Instanse.hit != null && AudioManager.Instanse.hit.Length > 0)
         {
             if (Time.time - lastHitSoundTime >= hitSoundCooldown)
@@ -76,6 +70,7 @@ public class GameManager : MonoBehaviour
         _playerSO.HasLocator = true;
         if (LocatorController.Instance != null)
             LocatorController.Instance.SetLocatorPanelPosition(true);
+        TaskManager.Instance?.CompleteTaskById("TaskData_Collect_locator");
     }
 
     public void ObtainBigSonar()
@@ -85,6 +80,7 @@ public class GameManager : MonoBehaviour
         _playerSO.HasBigSonar = true;
         if (UIManager.Instance != null)
             UIManager.Instance.ShowBigSonarPanel(_playerSO.HasBigSonar);
+        TaskManager.Instance?.CompleteTaskById("TaskData_Collect_big_sonar");
     }
 
     public void ResetPlayerData()
@@ -102,5 +98,9 @@ public class GameManager : MonoBehaviour
         _playerSO.CurrentHealth = _playerSO.MaxHealth;
         if (HealthController.Instance != null)
             HealthController.Instance.UpdateHealth(_playerSO.MaxHealth);
+
+        _playerSO.HasFirstBattery = false;
+
+        _playerSO.HasSecondBattery = false;
     }
 }

@@ -30,6 +30,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip death;
     public AudioClip[] hit;
 
+    [Header("---Collision Clips---")]
+    public AudioClip[] collisionClips; // призначити 3 кліпи в інспекторі
+    public float collisionVolume = 0.8f;
+    public float collisionMinRelativeVelocity = 1.0f; // мінімальна відносна швидкість для звуку
+
     [Header("---Enemy Clips---")]
     public AudioClip enemyBreathClip;
     public AudioClip enemyAggroClip;
@@ -232,6 +237,19 @@ public class AudioManager : MonoBehaviour
         else
             Debug.LogWarning("TestPlayEnemyAlarm: Enemy_alarm is null in AudioManager");
     }
+    public void PlayCollisionSoundRandom(Vector3 position, float volumeMultiplier = 1f)
+    {
+        if (collisionClips == null || collisionClips.Length == 0) return;
+        if (SFXSource != null)
+        {
+            var clip = collisionClips[Random.Range(0, collisionClips.Length)];
+            SFXSource.PlayOneShot(clip, Mathf.Clamp01(collisionVolume * volumeMultiplier));
+            return;
+        }
 
+        // fallback
+        var fallbackClip = collisionClips[Random.Range(0, collisionClips.Length)];
+        AudioSource.PlayClipAtPoint(fallbackClip, position, Mathf.Clamp01(collisionVolume * volumeMultiplier));
+    }
 
 }
