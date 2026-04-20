@@ -43,8 +43,8 @@ Material:
     - _Radius: 0
     - _Width: 5
     m_Colors:
-    - _Color: {r: 0.14293176, g: 1, b: 0, a: 1}
-    - _PulsePos: {r: -21.158247, g: 18.026852, b: 0, a: 0}
+    - _Color: {r: 0.26275468, g: 0.7433963, b: 0.1837451, a: 1}
+    - _PulsePos: {r: 24.7305, g: 22.478514, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3825281713317754025

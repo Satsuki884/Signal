@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: 1a7a34a45e6c06646a9cbd29c789328d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4255969994903349920
+    second: NormalMap (3)_0
+  - first:
+      213: 6959703849317578955
+    second: NormalMap (3)_1
+  - first:
+      213: 1963609019432393328
+    second: NormalMap (3)_2
+  - first:
+      213: -804002261423559289
+    second: NormalMap (3)_3
+  - first:
+      213: -3205472736019307936
+    second: NormalMap (3)_4
+  - first:
+      213: -3653830058172389001
+    second: NormalMap (3)_5
+  - first:
+      213: -8627092675205143181
+    second: NormalMap (3)_6
+  - first:
+      213: -4924060269244591088
+    second: NormalMap (3)_7
+  - first:
+      213: -4562648689863696947
+    second: NormalMap (3)_8
+  - first:
+      213: -5082061645646571791
+    second: NormalMap (3)_9
+  - first:
+      213: 9005794489642178088
+    second: NormalMap (3)_10
+  - first:
+      213: -2091982197723399806
+    second: NormalMap (3)_11
+  - first:
+      213: -3607838326744171369
+    second: NormalMap (3)_12
+  - first:
+      213: 730984226251414155
+    second: NormalMap (3)_13
+  - first:
+      213: 6976117691218052984
+    second: NormalMap (3)_14
+  - first:
+      213: 4889352301797933706
+    second: NormalMap (3)_15
+  - first:
+      213: 4548013567272055058
+    second: NormalMap (3)_16
+  - first:
+      213: -1945232924196081425
+    second: NormalMap (3)_17
+  - first:
+      213: -38584572655007347
+    second: NormalMap (3)_18
+  - first:
+      213: 4390558553824502073
+    second: NormalMap (3)_19
+  - first:
+      213: -3472300765571303940
+    second: NormalMap (3)_20
+  - first:
+      213: 5652068703882518383
+    second: NormalMap (3)_21
+  - first:
+      213: -1139533324220362847
+    second: NormalMap (3)_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NormalMap (3)_0
+      rect:
+        serializedVersion: 2
+        x: 2104
+        y: 3753
+        width: 99
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aa6fe8492e301b30800000000000000
+      internalID: 4255969994903349920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_1
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 3557
+        width: 96
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc83e70e6c5d59060800000000000000
+      internalID: 6959703849317578955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_2
+      rect:
+        serializedVersion: 2
+        x: 2511
+        y: 3596
+        width: 84
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a5501eff3204b10800000000000000
+      internalID: 1963609019432393328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_3
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 2648
+        width: 1000
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78dec39f33c97d4f0800000000000000
+      internalID: -804002261423559289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_4
+      rect:
+        serializedVersion: 2
+        x: 2779
+        y: 3113
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 062ae58a78fd383d0800000000000000
+      internalID: -3205472736019307936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_5
+      rect:
+        serializedVersion: 2
+        x: 1747
+        y: 2580
+        width: 85
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7796df0cbecfa4dc0800000000000000
+      internalID: -3653830058172389001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_6
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 2603
+        width: 96
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 375e5029be8664880800000000000000
+      internalID: -8627092675205143181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1883
+        width: 202
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 014df0f16493aabb0800000000000000
+      internalID: -4924060269244591088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_8
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 2009
+        width: 113
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcdd5c5c0373ea0c0800000000000000
+      internalID: -4562648689863696947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_9
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 2001
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f65994fbd3e879b0800000000000000
+      internalID: -5082061645646571791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_10
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1150
+        width: 1072
+        height: 1088
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826da43af520bfc70800000000000000
+      internalID: 9005794489642178088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_11
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 1861
+        width: 133
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28971446649c7f2e0800000000000000
+      internalID: -2091982197723399806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_12
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 1718
+        width: 299
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79cbf5f28226eedc0800000000000000
+      internalID: -3607838326744171369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_13
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 675
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8a1126e74af42a00800000000000000
+      internalID: 730984226251414155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_14
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 541
+        width: 174
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 877ce50441620d060800000000000000
+      internalID: 6976117691218052984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_15
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 545
+        width: 166
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a82876a73087ad340800000000000000
+      internalID: 4889352301797933706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_16
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 290
+        width: 456
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21178e63e3acd1f30800000000000000
+      internalID: 4548013567272055058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_17
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 394
+        width: 166
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe0f5e336f42105e0800000000000000
+      internalID: -1945232924196081425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_18
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 246
+        width: 166
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89861d198be67ff0800000000000000
+      internalID: -38584572655007347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_19
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 190
+        width: 136
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93123461eb56eec30800000000000000
+      internalID: 4390558553824502073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_20
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 0
+        width: 92
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf53ecac9d8efcfc0800000000000000
+      internalID: -3472300765571303940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_21
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 0
+        width: 92
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f150d4a8e207e40800000000000000
+      internalID: 5652068703882518383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalMap (3)_22
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 0
+        width: 92
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af0028aa709f20f0800000000000000
+      internalID: -1139533324220362847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NormalMap (3)_0: 4255969994903349920
+      NormalMap (3)_1: 6959703849317578955
+      NormalMap (3)_10: 9005794489642178088
+      NormalMap (3)_11: -2091982197723399806
+      NormalMap (3)_12: -3607838326744171369
+      NormalMap (3)_13: 730984226251414155
+      NormalMap (3)_14: 6976117691218052984
+      NormalMap (3)_15: 4889352301797933706
+      NormalMap (3)_16: 4548013567272055058
+      NormalMap (3)_17: -1945232924196081425
+      NormalMap (3)_18: -38584572655007347
+      NormalMap (3)_19: 4390558553824502073
+      NormalMap (3)_2: 1963609019432393328
+      NormalMap (3)_20: -3472300765571303940
+      NormalMap (3)_21: 5652068703882518383
+      NormalMap (3)_22: -1139533324220362847
+      NormalMap (3)_3: -804002261423559289
+      NormalMap (3)_4: -3205472736019307936
+      NormalMap (3)_5: -3653830058172389001
+      NormalMap (3)_6: -8627092675205143181
+      NormalMap (3)_7: -4924060269244591088
+      NormalMap (3)_8: -4562648689863696947
+      NormalMap (3)_9: -5082061645646571791
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

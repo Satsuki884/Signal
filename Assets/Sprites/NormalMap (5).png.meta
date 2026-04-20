@@ -1,10 +1,79 @@
 fileFormatVersion: 2
-guid: 52a6d272e8486274a8c0654f231c57a3
+guid: bc35a8585dea17d4da4bff60d17613e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1301978639130015461
-    second: bottom1_0
+      213: -1683691341101134292
+    second: NormalMap (5)_0
+  - first:
+      213: -7059733325436437029
+    second: NormalMap (5)_1
+  - first:
+      213: 5511096764958594564
+    second: NormalMap (5)_2
+  - first:
+      213: -3781564030711394291
+    second: NormalMap (5)_3
+  - first:
+      213: 2590608703272224456
+    second: NormalMap (5)_4
+  - first:
+      213: 4355760440608023035
+    second: NormalMap (5)_5
+  - first:
+      213: -8038860085274024699
+    second: NormalMap (5)_6
+  - first:
+      213: 3101116093203380324
+    second: NormalMap (5)_7
+  - first:
+      213: 3319433046355578294
+    second: NormalMap (5)_8
+  - first:
+      213: -7912095872049865115
+    second: NormalMap (5)_9
+  - first:
+      213: 1915171574921517460
+    second: NormalMap (5)_10
+  - first:
+      213: 7532796582810284237
+    second: NormalMap (5)_11
+  - first:
+      213: 6480402358135713364
+    second: NormalMap (5)_12
+  - first:
+      213: -3140013185236985767
+    second: NormalMap (5)_13
+  - first:
+      213: -154259349356313773
+    second: NormalMap (5)_14
+  - first:
+      213: -1596343373001203527
+    second: NormalMap (5)_15
+  - first:
+      213: -8148095640053103039
+    second: NormalMap (5)_16
+  - first:
+      213: 5596703404016214125
+    second: NormalMap (5)_17
+  - first:
+      213: -1864898220199077757
+    second: NormalMap (5)_18
+  - first:
+      213: -504039604616828267
+    second: NormalMap (5)_19
+  - first:
+      213: -4926227809827382224
+    second: NormalMap (5)_20
+  - first:
+      213: -8858369400023112040
+    second: NormalMap (5)_21
+  - first:
+      213: 8637174140690491103
+    second: NormalMap (5)_22
+  - first:
+      213: 6319688043404024278
+    second: NormalMap (5)_23
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,9 +109,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -51,7 +120,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,23 +208,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bottom1_0
+      name: NormalMap (5)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2048
-        height: 2048
+        width: 4321
+        height: 2197
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5e6bd729cae811210800000000000000
-      internalID: 1301978639130015461
+      spriteID: f2344da91b43fdc42a11710901abfb0b
+      internalID: -1683691341101134292
       vertices: []
       indices: 
       edges: []
@@ -164,19 +233,40 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: de251cbd388e2e6439e9474de8ed2a79
+    spriteID: 2d1e7bb2619f3dd4ca126ef683bc94e3
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 9003a01eee4e1c941b9438873784386c, type: 3}
-      name: _NormalMap
+    secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bottom1_0: 1301978639130015461
+      NormalMap (5)_0: -1683691341101134292
+      NormalMap (5)_1: -7059733325436437029
+      NormalMap (5)_10: 1915171574921517460
+      NormalMap (5)_11: 7532796582810284237
+      NormalMap (5)_12: 6480402358135713364
+      NormalMap (5)_13: -3140013185236985767
+      NormalMap (5)_14: -154259349356313773
+      NormalMap (5)_15: -1596343373001203527
+      NormalMap (5)_16: -8148095640053103039
+      NormalMap (5)_17: 5596703404016214125
+      NormalMap (5)_18: -1864898220199077757
+      NormalMap (5)_19: -504039604616828267
+      NormalMap (5)_2: 5511096764958594564
+      NormalMap (5)_20: -4926227809827382224
+      NormalMap (5)_21: -8858369400023112040
+      NormalMap (5)_22: 8637174140690491103
+      NormalMap (5)_23: 6319688043404024278
+      NormalMap (5)_3: -3781564030711394291
+      NormalMap (5)_4: 2590608703272224456
+      NormalMap (5)_5: 4355760440608023035
+      NormalMap (5)_6: -8038860085274024699
+      NormalMap (5)_7: 3101116093203380324
+      NormalMap (5)_8: 3319433046355578294
+      NormalMap (5)_9: -7912095872049865115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
