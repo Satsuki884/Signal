@@ -184,4 +184,31 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 1) мінімальна відносна швидкість — щоб не грати звук при легких дотиках
+        float relVel = collision.relativeVelocity.magnitude;
+        if (relVel < AudioManager.Instanse?.collisionMinRelativeVelocity) return;
+
+        // 2) якщо інший об'єкт є джерелом шкоди — не граємо collision sound
+        var other = collision.collider;
+
+        // перевірка за компонентом Enemy
+        if (other.GetComponent<Enemy>() != null) return;
+
+        // перевірка за інтерфейсом IDamageDealer (якщо додали)
+        // замість GetComponent(typeof(IDamageDealer))
+        if (other.GetComponent<Enemy>() != null) return;
+
+
+        // перевірка за тегом (якщо у тебе є теги для небезпечних об'єктів)
+        if (other.CompareTag("Damage") || other.CompareTag("Enemy")) return;
+
+        // Якщо пройшли всі фільтри — граємо випадковий collision звук
+        if (AudioManager.Instanse != null)
+        {
+            AudioManager.Instanse.PlayCollisionSoundRandom(transform.position, Mathf.Clamp01(relVel / 10f));
+        }
+    }
+
 }
