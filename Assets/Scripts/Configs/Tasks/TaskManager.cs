@@ -104,7 +104,8 @@ public class TaskManager : MonoBehaviour
 
         if (currentTaskIndex >= tasks.Count)
         {
-            Debug.Log("🎉 ГРА ЗАКІНЧЕНА");
+            // AudioManager.Instanse?.PlaySFX(AudioManager.Instanse.victory);
+            EndUIPanel.Instance?.GameOver("Congratulations! You're surfaced!!");
             return;
         }
 
