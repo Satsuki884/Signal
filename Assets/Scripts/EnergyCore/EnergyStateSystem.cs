@@ -24,7 +24,7 @@ public class EnergyStateSystem : MonoBehaviour
     [SerializeField] private float _maxValue = 100f;
 
     [Header("Mental Increase")]
-    [SerializeField] private float _passiveReduseSpeed = 0.5f;
+    [SerializeField] private float _passiveReduseSpeed = 0.0f;
     [SerializeField] private float _sonarPenalty = 1.0f;
 
     private void Awake()
