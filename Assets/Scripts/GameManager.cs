@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
         _playerSO.HasLocator = true;
         if (LocatorController.Instance != null)
             LocatorController.Instance.SetLocatorPanelPosition(true);
+        TaskManager.Instance?.CompleteTaskById("TaskData_Collect_locator");
     }
 
     public void ObtainBigSonar()
@@ -78,6 +80,7 @@ public class GameManager : MonoBehaviour
         _playerSO.HasBigSonar = true;
         if (UIManager.Instance != null)
             UIManager.Instance.ShowBigSonarPanel(_playerSO.HasBigSonar);
+        TaskManager.Instance?.CompleteTaskById("TaskData_Collect_big_sonar");
     }
 
     public void ObtainFirstBattery()
@@ -85,6 +88,7 @@ public class GameManager : MonoBehaviour
         if (_playerSO == null) return;
 
         _playerSO.HasFirstBattery = true;
+        TaskManager.Instance?.CompleteTaskById("TaskData_Collect_FirstBat");
     }
 
     public void ObtainSecondBattery()
@@ -92,6 +96,7 @@ public class GameManager : MonoBehaviour
         if (_playerSO == null) return;
 
         _playerSO.HasSecondBattery = true;
+        TaskManager.Instance?.CompleteTaskById("TaskData_Investigate_SecondBat");
     }
 
     public void ResetPlayerData()
@@ -111,7 +116,7 @@ public class GameManager : MonoBehaviour
             HealthController.Instance.UpdateHealth(_playerSO.MaxHealth);
 
         _playerSO.HasFirstBattery = false;
-        
+
         _playerSO.HasSecondBattery = false;
     }
 }

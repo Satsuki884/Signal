@@ -5,12 +5,13 @@ public class TaskManager : MonoBehaviour
 {
     public static TaskManager Instance { get; private set; }
 
+    [Header("Config")]
     [SerializeField] private TaskPool taskPool;
 
-    private List<TaskData> tasks;
+    private List<TaskRuntime> tasks = new List<TaskRuntime>();
     private int currentTaskIndex = -1;
 
-    private TaskData CurrentTask =>
+    private TaskRuntime CurrentTask =>
         (currentTaskIndex >= 0 && currentTaskIndex < tasks.Count)
         ? tasks[currentTaskIndex]
         : null;
@@ -26,9 +27,16 @@ public class TaskManager : MonoBehaviour
         StartFirstTask();
     }
 
+    // ---------------- INIT ----------------
+
     private void InitTasks()
     {
-        tasks = new List<TaskData>(taskPool.GetTaskDatas());
+        tasks.Clear();
+
+        foreach (var taskData in taskPool.GetTaskDatas())
+        {
+            tasks.Add(new TaskRuntime(taskData));
+        }
     }
 
     private void StartFirstTask()
@@ -40,35 +48,87 @@ public class TaskManager : MonoBehaviour
         }
 
         currentTaskIndex = 0;
-        Debug.Log($"Start task: {CurrentTask.Description}");
 
-        // якщо є UI
-        TaskUI.Instance?.ShowTask(CurrentTask);
+        SkipCompletedTasks();
     }
+
+    // ---------------- COMPLETE ----------------
 
     public void CompleteCurrentTask()
     {
         if (CurrentTask == null) return;
 
-        Debug.Log($"Completed: {CurrentTask.Description}");
+        Debug.Log($"Completed: {CurrentTask.Data.Description}");
+
+        CurrentTask.Complete();
 
         currentTaskIndex++;
 
-        // якщо це була остання таска
+        SkipCompletedTasks();
+    }
+
+    public void CompleteTaskById(string taskId)
+    {
+        if (tasks.Count == 0) return;
+
+        var task = tasks.Find(t => t.Data.TaskId == taskId);
+
+        if (task == null)
+        {
+            Debug.LogWarning($"Task with id {taskId} not found");
+            return;
+        }
+
+        if (task.IsCompleted) return;
+
+        task.Complete();
+
+        int index = tasks.IndexOf(task);
+
+        if (index == currentTaskIndex)
+        {
+            currentTaskIndex++;
+            SkipCompletedTasks();
+        }
+    }
+
+    // ---------------- FLOW ----------------
+
+    private void SkipCompletedTasks()
+    {
+        while (currentTaskIndex < tasks.Count &&
+               tasks[currentTaskIndex].IsCompleted)
+        {
+            currentTaskIndex++;
+        }
+
         if (currentTaskIndex >= tasks.Count)
         {
             Debug.Log("🎉 ГРА ЗАКІНЧЕНА");
             return;
         }
 
-        // наступна таска
-        Debug.Log($"Next task: {CurrentTask.Description}");
-        TaskUI.Instance?.ShowTask(CurrentTask);
-        PausePanelController.Instance?.ShowTask(CurrentTask);
+        Debug.Log($"Current task: {CurrentTask.Data.Description}");
+
+        TaskUI.Instance?.ShowTask(CurrentTask.Data);
+        PausePanelController.Instance?.ShowTask(CurrentTask.Data);
     }
+
+    // ---------------- GETTERS ----------------
 
     public string GetCurrentTaskId()
     {
-        return CurrentTask?.TaskId;
+        return CurrentTask?.Data.TaskId;
+    }
+
+    public TaskData GetCurrentTask()
+    {
+        return CurrentTask?.Data;
+    }
+
+    public bool IsTaskCompleted(string taskId)
+    {
+        var task = tasks.Find(t => t.Data.TaskId == taskId);
+        return task != null && task.IsCompleted;
     }
 }

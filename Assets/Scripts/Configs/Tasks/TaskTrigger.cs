@@ -5,7 +5,7 @@ public class TaskTrigger : MonoBehaviour
     [SerializeField] private string taskId; // який таск виконує цей тригер
     [SerializeField] private bool destroyAfterTrigger = true;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
@@ -14,7 +14,7 @@ public class TaskTrigger : MonoBehaviour
 
         Debug.Log($"Trigger activated for task: {taskId}");
 
-        TaskManager.Instance.CompleteCurrentTask();
+        TaskManager.Instance.CompleteTaskById(taskId);
 
         if (destroyAfterTrigger)
             Destroy(gameObject);

@@ -23,7 +23,6 @@ public class TaskData : ScriptableObject
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        // автоматично ставимо ID = ім’я файлу
         string assetName = name;
 
         if (taskId != assetName)

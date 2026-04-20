@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: TaskPool
   m_EditorClassIdentifier: Assembly-CSharp::TaskPool
   taskDatas:
-  - {fileID: 11400000, guid: 8d24e271a7969444f925c90ed0e306b2, type: 2}
   - {fileID: 11400000, guid: 9b88ba05a7ff4dd4992611eafc15a34f, type: 2}
   - {fileID: 11400000, guid: 13ba7c7ffff060c4fb746eb9605b2596, type: 2}
   - {fileID: 11400000, guid: b3d654f9cd84d544099cd616978c79d6, type: 2}
