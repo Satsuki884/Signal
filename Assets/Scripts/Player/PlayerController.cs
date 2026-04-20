@@ -184,4 +184,24 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (AudioManager.Instanse == null) return;
+
+        float relVel = collision.relativeVelocity.magnitude;
+        if (relVel < AudioManager.Instanse.collisionMinRelativeVelocity)
+            return;
+
+        GameObject other = collision.collider.gameObject;
+
+        if (other.GetComponentInParent<Enemy>() != null)
+            return;
+
+        if (other.CompareTag("Enemy"))
+            return;
+
+        float volumeMul = Mathf.Clamp01(relVel / 10f);
+        AudioManager.Instanse.PlayCollisionSoundRandom(transform.position, volumeMul);
+    }
+
 }

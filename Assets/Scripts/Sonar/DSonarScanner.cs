@@ -40,6 +40,17 @@ public class DSonarScanner : MonoBehaviour
                 Debug.Log("<color=yellow>[DSonarScanner]</color> Кнопка R нажата! Запуск...");
                 dLastScanTime = Time.time;
                 DScanEnvironment();
+                // Play sonar sound (non-positional) when scan starts
+                if (AudioManager.Instanse != null && AudioManager.Instanse.Sonar != null)
+                {
+                    // Play non-positional SFX via AudioManager
+                    AudioManager.Instanse.PlaySFXAtPosition(AudioManager.Instanse.Sonar, Camera.main != null ? Camera.main.transform.position : transform.position, 1f, 0f);
+                }
+                else
+                {
+                    Debug.LogWarning("[DSonarScanner] AudioManager or Sonar clip is not set.");
+                }
+
             }
             else
             {
