@@ -131,11 +131,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   rotateTowardsMovement: 1
-  rotationSpeed: 720
-  spriteForwardAngle: 0
+  rotationSpeed: 360
+  spriteForwardAngle: -90
   currentState: 0
   aggroRadius: 10
-  attackRadius: 1.5
+  attackRadius: 3.9
   moveSpeed: 3
   patrolRadius: 5
   patrolSpeed: 1.5
@@ -151,7 +151,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8372028203554193311}
   breathSource: {fileID: 0}
   sfxSource: {fileID: 0}
-  debugDrawAlways: 0
+  debugDrawAlways: 1
 --- !u!60 &2778124729055737412
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
