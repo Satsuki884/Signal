@@ -17,6 +17,6 @@ public class TaskUI : MonoBehaviour
     {
         if (task == null) return;
 
-        taskText.text = task.Description;
+        taskText.text = $"* {task.Description}";
     }
 }

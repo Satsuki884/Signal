@@ -37,7 +37,7 @@ public class PausePanelController : MonoBehaviour
     {
         if (task == null) return;
 
-        _taskText.text = task.Description;
+        _taskText.text = $"* {task.Description}";
     }
     private void Start()
     {
