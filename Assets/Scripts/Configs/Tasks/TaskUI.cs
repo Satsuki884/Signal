@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,7 +6,7 @@ public class TaskUI : MonoBehaviour
 {
     public static TaskUI Instance { get; private set; }
 
-    [SerializeField] private Text taskText;
+    [SerializeField] private TMP_Text taskText;
 
     private void Awake()
     {

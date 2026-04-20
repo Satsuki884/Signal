@@ -64,6 +64,7 @@ public class TaskManager : MonoBehaviour
         // наступна таска
         Debug.Log($"Next task: {CurrentTask.Description}");
         TaskUI.Instance?.ShowTask(CurrentTask);
+        PausePanelController.Instance?.ShowTask(CurrentTask);
     }
 
     public string GetCurrentTaskId()
