@@ -186,29 +186,22 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // 1) мінімальна відносна швидкість — щоб не грати звук при легких дотиках
+        if (AudioManager.Instanse == null) return;
+
         float relVel = collision.relativeVelocity.magnitude;
-        if (relVel < AudioManager.Instanse?.collisionMinRelativeVelocity) return;
+        if (relVel < AudioManager.Instanse.collisionMinRelativeVelocity)
+            return;
 
-        // 2) якщо інший об'єкт є джерелом шкоди — не граємо collision sound
-        var other = collision.collider;
+        GameObject other = collision.collider.gameObject;
 
-        // перевірка за компонентом Enemy
-        if (other.GetComponent<Enemy>() != null) return;
+        if (other.GetComponentInParent<Enemy>() != null)
+            return;
 
-        // перевірка за інтерфейсом IDamageDealer (якщо додали)
-        // замість GetComponent(typeof(IDamageDealer))
-        if (other.GetComponent<Enemy>() != null) return;
+        if (other.CompareTag("Enemy"))
+            return;
 
-
-        // перевірка за тегом (якщо у тебе є теги для небезпечних об'єктів)
-        if (other.CompareTag("Damage") || other.CompareTag("Enemy")) return;
-
-        // Якщо пройшли всі фільтри — граємо випадковий collision звук
-        if (AudioManager.Instanse != null)
-        {
-            AudioManager.Instanse.PlayCollisionSoundRandom(transform.position, Mathf.Clamp01(relVel / 10f));
-        }
+        float volumeMul = Mathf.Clamp01(relVel / 10f);
+        AudioManager.Instanse.PlayCollisionSoundRandom(transform.position, volumeMul);
     }
 
 }
