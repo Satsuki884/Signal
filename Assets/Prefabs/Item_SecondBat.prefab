@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3247312896004508567}
   - component: {fileID: 5800043655725323861}
-  - component: {fileID: 4526406932910033697}
   - component: {fileID: 1882512527279686832}
-  - component: {fileID: 9127987897205123574}
-  m_Layer: 6
-  m_Name: Item_Locator
+  - component: {fileID: -5109152465591284417}
+  m_Layer: 0
+  m_Name: Item_SecondBat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +84,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 0.36078432, g: 0.4784314, b: 0.4156863, a: 1}
+  m_Color: {r: 0.8490566, g: 0.1585973, b: 0.696301, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,18 +93,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4526406932910033697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3240499614685150375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fa195e1b001c744d8d866a86389dc69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemLocator
 --- !u!61 &1882512527279686832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,7 +139,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9127987897205123574
+--- !u!114 &-5109152465591284417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +148,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3240499614685150375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43926d8ba1882742902925222641f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: f04128cefd8a0e54ba2db52fcc75220e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DSonarTarget
-  dType: 2
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSecondBat

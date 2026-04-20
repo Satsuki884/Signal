@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5800043655725323861}
   - component: {fileID: 4526406932910033697}
   - component: {fileID: 1882512527279686832}
-  - component: {fileID: 9127987897205123574}
-  m_Layer: 6
-  m_Name: Item_Locator
+  - component: {fileID: -430322787443984632}
+  m_Layer: 0
+  m_Name: Item_FirstBat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 0.36078432, g: 0.4784314, b: 0.4156863, a: 1}
+  m_Color: {r: 0.47843137, g: 0.43860266, b: 0.36078432, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -152,7 +152,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9127987897205123574
+--- !u!114 &-430322787443984632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +161,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3240499614685150375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43926d8ba1882742902925222641f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: ae6c207b2eab1b14fbd8aec43d084c92, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DSonarTarget
-  dType: 2
+  m_EditorClassIdentifier: Assembly-CSharp::ItemFirstBat
