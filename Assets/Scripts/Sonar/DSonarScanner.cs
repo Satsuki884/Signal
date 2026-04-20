@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class DSonarScanner : MonoBehaviour
 {
@@ -18,8 +19,11 @@ public class DSonarScanner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        Debug.Log("Update работает");
+
+        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
+            Debug.Log("R detected");
             if (Time.time >= dLastScanTime + dScanCooldown)
             {
                 Debug.Log("<color=yellow>[DSonarScanner]</color> Кнопка R нажата! Запуск...");
