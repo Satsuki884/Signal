@@ -24,8 +24,8 @@ public class EnergyStateSystem : MonoBehaviour
     [SerializeField] private float _maxValue = 100f;
 
     [Header("Mental Increase")]
-    [SerializeField] private float _passiveReduseSpeed = 0.5f;
-    // [SerializeField] private float _bigSonarBonusIncrease = 0.5f;
+    [SerializeField] private float _passiveReduseSpeed = 0.0f;
+    [SerializeField] private float _sonarPenalty = 1.0f;
 
     private void Awake()
     {
@@ -71,7 +71,6 @@ public class EnergyStateSystem : MonoBehaviour
                 StopCoroutine(_blinkCoroutine);
                 _isBlinking = false;
 
-                // 🔥 повертаємо нормальний стан
                 _energyValueText.color = _energyFullColor;
             }
         }
@@ -100,20 +99,25 @@ public class EnergyStateSystem : MonoBehaviour
         EnergyValue -= amount;
         EnergyValue = Mathf.Clamp(EnergyValue, 0f, _maxValue);
 
-        EnergyValue = RoundTo3(EnergyValue); // 🔥 ключовий момент
-
         _energyValueSlider.value = EnergyValue;
-        _energyValueText.text = EnergyValue.ToString("F1");
+        _energyValueText.text = EnergyValue.ToString("F1"); 
     }
 
     private void HandleEnergyIncrease()
     {
-        float speed = _passiveReduseSpeed;
 
-        float stressMultiplier = EnergyValue / 100f;
-        _energyReduseSpeedText.text = "-" + _passiveReduseSpeed.ToString("F2") + " /s";
+        float currentSpeed = _passiveReduseSpeed;
 
-        ReduceEnergy(speed * stressMultiplier * Time.deltaTime);
+        if (SonarController.Instance != null && SonarController.Instance.IsOn)
+        {
+            currentSpeed += _sonarPenalty;
+        }
+
+        float stressMultiplier = Mathf.Clamp(EnergyValue / 100f, 0.2f, 1f);
+
+        _energyReduseSpeedText.text = "-" + currentSpeed.ToString("F2") + " /s";
+
+        ReduceEnergy(currentSpeed * stressMultiplier * Time.deltaTime);
     }
 
     private float RoundTo3(float value)

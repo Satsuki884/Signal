@@ -18,7 +18,7 @@ public class DSonarMarker : MonoBehaviour
         dCanvasGroup = gameObject.GetComponent<CanvasGroup>();
         if (dCanvasGroup == null) dCanvasGroup = gameObject.AddComponent<CanvasGroup>();
 
-        dCanvasGroup.alpha = 0; // Скрываем сразу
+        dCanvasGroup.alpha = 0;
     }
 
     void Update()
@@ -35,8 +35,6 @@ public class DSonarMarker : MonoBehaviour
     {
         dIsActivated = true;
         dCanvasGroup.alpha = 1;
-        Debug.Log("<color=green>[Marker]</color> Точка активирована линией!");
-
 
         Destroy(gameObject, dLifeTime);
     }
