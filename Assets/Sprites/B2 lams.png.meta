@@ -1,0 +1,374 @@
+fileFormatVersion: 2
+guid: 7a4be7c3691cc6347853406bea55249b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8250493482037747300
+    second: B2 lams_0
+  - first:
+      213: -784197522943924320
+    second: B2 lams_1
+  - first:
+      213: -5846448108583344333
+    second: B2 lams_2
+  - first:
+      213: -900300408034414507
+    second: B2 lams_3
+  - first:
+      213: -1155170979972701130
+    second: B2 lams_4
+  - first:
+      213: 8566119399006571417
+    second: B2 lams_5
+  - first:
+      213: -4653334132804654850
+    second: B2 lams_6
+  - first:
+      213: 7676532655665153052
+    second: B2 lams_7
+  - first:
+      213: 4291284601807482452
+    second: B2 lams_8
+  - first:
+      213: -4221181089958371373
+    second: B2 lams_9
+  - first:
+      213: 5437259283107621372
+    second: B2 lams_10
+  - first:
+      213: 3076583455292176538
+    second: B2 lams_11
+  - first:
+      213: 268426387604700595
+    second: B2 lams_12
+  - first:
+      213: 441697688467413521
+    second: B2 lams_13
+  - first:
+      213: 4529562278372841081
+    second: B2 lams_14
+  - first:
+      213: -8645667502860315911
+    second: B2 lams_15
+  - first:
+      213: -3018736983005894827
+    second: B2 lams_16
+  - first:
+      213: -2838069801592166773
+    second: B2 lams_17
+  - first:
+      213: 2646290873111170605
+    second: B2 lams_18
+  - first:
+      213: 824196021866860803
+    second: B2 lams_19
+  - first:
+      213: 1014623941526129642
+    second: B2 lams_20
+  - first:
+      213: -5283316444132137630
+    second: B2 lams_21
+  - first:
+      213: -3974523148086165767
+    second: B2 lams_22
+  - first:
+      213: -2043330908382707287
+    second: B2 lams_23
+  - first:
+      213: -7451146475103820710
+    second: B2 lams_24
+  - first:
+      213: -5038758352710883356
+    second: B2 lams_25
+  - first:
+      213: 5224805250703996374
+    second: B2 lams_26
+  - first:
+      213: -215446235940027890
+    second: B2 lams_27
+  - first:
+      213: -5054445415273909998
+    second: B2 lams_28
+  - first:
+      213: 8898161795408946146
+    second: B2 lams_29
+  - first:
+      213: 3058544637433091287
+    second: B2 lams_30
+  - first:
+      213: 3412096650674873896
+    second: B2 lams_31
+  - first:
+      213: 8455560660432766786
+    second: B2 lams_32
+  - first:
+      213: 2862439931537440504
+    second: B2 lams_33
+  - first:
+      213: 2233355342530011197
+    second: B2 lams_34
+  - first:
+      213: -8508718136761948701
+    second: B2 lams_35
+  - first:
+      213: -6437481625504219247
+    second: B2 lams_36
+  - first:
+      213: -625101946819169362
+    second: B2 lams_37
+  - first:
+      213: 718789114832898114
+    second: B2 lams_38
+  - first:
+      213: -7959632843750341797
+    second: B2 lams_39
+  - first:
+      213: 6445490738512189806
+    second: B2 lams_40
+  - first:
+      213: -165026660701687118
+    second: B2 lams_41
+  - first:
+      213: -207613090970680896
+    second: B2 lams_42
+  - first:
+      213: 5240331029536275277
+    second: B2 lams_43
+  - first:
+      213: 5321287875387193041
+    second: B2 lams_44
+  - first:
+      213: 6439602742747661011
+    second: B2 lams_45
+  - first:
+      213: -5913252741042496056
+    second: B2 lams_46
+  - first:
+      213: -267482271896072753
+    second: B2 lams_47
+  - first:
+      213: -1747909304700075565
+    second: B2 lams_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: B2 lams_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 4186
+        height: 4034
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440cf364d611e8244b551f7f024238e4
+      internalID: -8250493482037747300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b706e6e1ae6a33a42a09f77d3b1bada2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      B2 lams_0: -8250493482037747300
+      B2 lams_1: -784197522943924320
+      B2 lams_10: 5437259283107621372
+      B2 lams_11: 3076583455292176538
+      B2 lams_12: 268426387604700595
+      B2 lams_13: 441697688467413521
+      B2 lams_14: 4529562278372841081
+      B2 lams_15: -8645667502860315911
+      B2 lams_16: -3018736983005894827
+      B2 lams_17: -2838069801592166773
+      B2 lams_18: 2646290873111170605
+      B2 lams_19: 824196021866860803
+      B2 lams_2: -5846448108583344333
+      B2 lams_20: 1014623941526129642
+      B2 lams_21: -5283316444132137630
+      B2 lams_22: -3974523148086165767
+      B2 lams_23: -2043330908382707287
+      B2 lams_24: -7451146475103820710
+      B2 lams_25: -5038758352710883356
+      B2 lams_26: 5224805250703996374
+      B2 lams_27: -215446235940027890
+      B2 lams_28: -5054445415273909998
+      B2 lams_29: 8898161795408946146
+      B2 lams_3: -900300408034414507
+      B2 lams_30: 3058544637433091287
+      B2 lams_31: 3412096650674873896
+      B2 lams_32: 8455560660432766786
+      B2 lams_33: 2862439931537440504
+      B2 lams_34: 2233355342530011197
+      B2 lams_35: -8508718136761948701
+      B2 lams_36: -6437481625504219247
+      B2 lams_37: -625101946819169362
+      B2 lams_38: 718789114832898114
+      B2 lams_39: -7959632843750341797
+      B2 lams_4: -1155170979972701130
+      B2 lams_40: 6445490738512189806
+      B2 lams_41: -165026660701687118
+      B2 lams_42: -207613090970680896
+      B2 lams_43: 5240331029536275277
+      B2 lams_44: 5321287875387193041
+      B2 lams_45: 6439602742747661011
+      B2 lams_46: -5913252741042496056
+      B2 lams_47: -267482271896072753
+      B2 lams_48: -1747909304700075565
+      B2 lams_5: 8566119399006571417
+      B2 lams_6: -4653334132804654850
+      B2 lams_7: 7676532655665153052
+      B2 lams_8: 4291284601807482452
+      B2 lams_9: -4221181089958371373
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

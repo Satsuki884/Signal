@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 1ba3d891e67627d44b08f5e9cb155d96
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7400696645338750674
+    second: A1 lams_0
+  - first:
+      213: -4904928596375923829
+    second: A1 lams_1
+  - first:
+      213: -5380973343792200222
+    second: A1 lams_2
+  - first:
+      213: 7245041318658670934
+    second: A1 lams_3
+  - first:
+      213: 4971125756143942205
+    second: A1 lams_4
+  - first:
+      213: -902941743740114268
+    second: A1 lams_5
+  - first:
+      213: -8740630240134203332
+    second: A1 lams_6
+  - first:
+      213: -4043443863307737855
+    second: A1 lams_7
+  - first:
+      213: 4309247719441992292
+    second: A1 lams_8
+  - first:
+      213: -4529328650361131726
+    second: A1 lams_9
+  - first:
+      213: 8921060579029831178
+    second: A1 lams_10
+  - first:
+      213: 2568662301099354360
+    second: A1 lams_11
+  - first:
+      213: 8288271883446591651
+    second: A1 lams_12
+  - first:
+      213: 7728109531202466439
+    second: A1 lams_13
+  - first:
+      213: -2244203204533396201
+    second: A1 lams_14
+  - first:
+      213: -6423293046955721585
+    second: A1 lams_15
+  - first:
+      213: -9221992775819695949
+    second: A1 lams_16
+  - first:
+      213: 1168982564184926901
+    second: A1 lams_17
+  - first:
+      213: 4078027539390533212
+    second: A1 lams_18
+  - first:
+      213: 5609220214191624986
+    second: A1 lams_19
+  - first:
+      213: -783384853954410750
+    second: A1 lams_20
+  - first:
+      213: 6825981573180709792
+    second: A1 lams_21
+  - first:
+      213: -6102052917270478923
+    second: A1 lams_22
+  - first:
+      213: 4407152884075290943
+    second: A1 lams_23
+  - first:
+      213: 5191391280316789048
+    second: A1 lams_24
+  - first:
+      213: -8730542754842725778
+    second: A1 lams_25
+  - first:
+      213: 2786463090654033926
+    second: A1 lams_26
+  - first:
+      213: -3043239993454158635
+    second: A1 lams_27
+  - first:
+      213: 1678070872206041912
+    second: A1 lams_28
+  - first:
+      213: -2501473223215959404
+    second: A1 lams_29
+  - first:
+      213: -250108784290743627
+    second: A1 lams_30
+  - first:
+      213: -4918035352360748740
+    second: A1 lams_31
+  - first:
+      213: -3632937929513699346
+    second: A1 lams_32
+  - first:
+      213: 151818944246392584
+    second: A1 lams_33
+  - first:
+      213: 7150575248542821231
+    second: A1 lams_34
+  - first:
+      213: 5046739095201643848
+    second: A1 lams_35
+  - first:
+      213: -3741825834932016788
+    second: A1 lams_36
+  - first:
+      213: -6682764905545285195
+    second: A1 lams_37
+  - first:
+      213: 3785249293972537683
+    second: A1 lams_38
+  - first:
+      213: -7129404257173936865
+    second: A1 lams_39
+  - first:
+      213: 6628798865769666095
+    second: A1 lams_40
+  - first:
+      213: -3007058040092995480
+    second: A1 lams_41
+  - first:
+      213: 4114785966667119725
+    second: A1 lams_42
+  - first:
+      213: -8544899411370255567
+    second: A1 lams_43
+  - first:
+      213: -5218405253439785717
+    second: A1 lams_44
+  - first:
+      213: 8454994574763533935
+    second: A1 lams_45
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: A1 lams_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 4817
+        height: 4726
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df3e8e35be581846b306b1f37c78530
+      internalID: -7400696645338750674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6c6b4c966b94f4245b5525d1f66c6064
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 10912bc872449fd46989a046e4a0f3d2, type: 3}
+      name: _NormalMap
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      A1 lams_0: -7400696645338750674
+      A1 lams_1: -4904928596375923829
+      A1 lams_10: 8921060579029831178
+      A1 lams_11: 2568662301099354360
+      A1 lams_12: 8288271883446591651
+      A1 lams_13: 7728109531202466439
+      A1 lams_14: -2244203204533396201
+      A1 lams_15: -6423293046955721585
+      A1 lams_16: -9221992775819695949
+      A1 lams_17: 1168982564184926901
+      A1 lams_18: 4078027539390533212
+      A1 lams_19: 5609220214191624986
+      A1 lams_2: -5380973343792200222
+      A1 lams_20: -783384853954410750
+      A1 lams_21: 6825981573180709792
+      A1 lams_22: -6102052917270478923
+      A1 lams_23: 4407152884075290943
+      A1 lams_24: 5191391280316789048
+      A1 lams_25: -8730542754842725778
+      A1 lams_26: 2786463090654033926
+      A1 lams_27: -3043239993454158635
+      A1 lams_28: 1678070872206041912
+      A1 lams_29: -2501473223215959404
+      A1 lams_3: 7245041318658670934
+      A1 lams_30: -250108784290743627
+      A1 lams_31: -4918035352360748740
+      A1 lams_32: -3632937929513699346
+      A1 lams_33: 151818944246392584
+      A1 lams_34: 7150575248542821231
+      A1 lams_35: 5046739095201643848
+      A1 lams_36: -3741825834932016788
+      A1 lams_37: -6682764905545285195
+      A1 lams_38: 3785249293972537683
+      A1 lams_39: -7129404257173936865
+      A1 lams_4: 4971125756143942205
+      A1 lams_40: 6628798865769666095
+      A1 lams_41: -3007058040092995480
+      A1 lams_42: 4114785966667119725
+      A1 lams_43: -8544899411370255567
+      A1 lams_44: -5218405253439785717
+      A1 lams_45: 8454994574763533935
+      A1 lams_5: -902941743740114268
+      A1 lams_6: -8740630240134203332
+      A1 lams_7: -4043443863307737855
+      A1 lams_8: 4309247719441992292
+      A1 lams_9: -4529328650361131726
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TaskData_Collect_big_sonar
   m_EditorClassIdentifier: Assembly-CSharp::TaskData
   taskId: TaskData_Collect_big_sonar
-  description: 'Find a big sonar. '
+  description: 'Find a big sonar at complex B1. '
   icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}

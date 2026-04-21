@@ -1,0 +1,1430 @@
+fileFormatVersion: 2
+guid: 8b2829a9af3e87e449367f9f87d32a95
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8250493482037747300
+    second: B2 lams_0
+  - first:
+      213: -784197522943924320
+    second: B2 lams_1
+  - first:
+      213: -5846448108583344333
+    second: B2 lams_2
+  - first:
+      213: -900300408034414507
+    second: B2 lams_3
+  - first:
+      213: -1155170979972701130
+    second: B2 lams_4
+  - first:
+      213: 8566119399006571417
+    second: B2 lams_5
+  - first:
+      213: -4653334132804654850
+    second: B2 lams_6
+  - first:
+      213: 7676532655665153052
+    second: B2 lams_7
+  - first:
+      213: 4291284601807482452
+    second: B2 lams_8
+  - first:
+      213: -4221181089958371373
+    second: B2 lams_9
+  - first:
+      213: 5437259283107621372
+    second: B2 lams_10
+  - first:
+      213: 3076583455292176538
+    second: B2 lams_11
+  - first:
+      213: 268426387604700595
+    second: B2 lams_12
+  - first:
+      213: 441697688467413521
+    second: B2 lams_13
+  - first:
+      213: 4529562278372841081
+    second: B2 lams_14
+  - first:
+      213: -8645667502860315911
+    second: B2 lams_15
+  - first:
+      213: -3018736983005894827
+    second: B2 lams_16
+  - first:
+      213: -2838069801592166773
+    second: B2 lams_17
+  - first:
+      213: 2646290873111170605
+    second: B2 lams_18
+  - first:
+      213: 824196021866860803
+    second: B2 lams_19
+  - first:
+      213: 1014623941526129642
+    second: B2 lams_20
+  - first:
+      213: -5283316444132137630
+    second: B2 lams_21
+  - first:
+      213: -3974523148086165767
+    second: B2 lams_22
+  - first:
+      213: -2043330908382707287
+    second: B2 lams_23
+  - first:
+      213: -7451146475103820710
+    second: B2 lams_24
+  - first:
+      213: -5038758352710883356
+    second: B2 lams_25
+  - first:
+      213: 5224805250703996374
+    second: B2 lams_26
+  - first:
+      213: -215446235940027890
+    second: B2 lams_27
+  - first:
+      213: -5054445415273909998
+    second: B2 lams_28
+  - first:
+      213: 8898161795408946146
+    second: B2 lams_29
+  - first:
+      213: 3058544637433091287
+    second: B2 lams_30
+  - first:
+      213: 3412096650674873896
+    second: B2 lams_31
+  - first:
+      213: 8455560660432766786
+    second: B2 lams_32
+  - first:
+      213: 2862439931537440504
+    second: B2 lams_33
+  - first:
+      213: 2233355342530011197
+    second: B2 lams_34
+  - first:
+      213: -8508718136761948701
+    second: B2 lams_35
+  - first:
+      213: -6437481625504219247
+    second: B2 lams_36
+  - first:
+      213: -625101946819169362
+    second: B2 lams_37
+  - first:
+      213: 718789114832898114
+    second: B2 lams_38
+  - first:
+      213: -7959632843750341797
+    second: B2 lams_39
+  - first:
+      213: 6445490738512189806
+    second: B2 lams_40
+  - first:
+      213: -165026660701687118
+    second: B2 lams_41
+  - first:
+      213: -207613090970680896
+    second: B2 lams_42
+  - first:
+      213: 5240331029536275277
+    second: B2 lams_43
+  - first:
+      213: 5321287875387193041
+    second: B2 lams_44
+  - first:
+      213: 6439602742747661011
+    second: B2 lams_45
+  - first:
+      213: -5913252741042496056
+    second: B2 lams_46
+  - first:
+      213: -267482271896072753
+    second: B2 lams_47
+  - first:
+      213: -1747909304700075565
+    second: B2 lams_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: B2 lams_0
+      rect:
+        serializedVersion: 2
+        x: 2044
+        y: 3605
+        width: 238
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91e67d14eb508d80800000000000000
+      internalID: -8250493482037747300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_1
+      rect:
+        serializedVersion: 2
+        x: 2164
+        y: 3917
+        width: 118
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a7af2bf188fd15f0800000000000000
+      internalID: -784197522943924320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 3441
+        width: 168
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337a22acb6e3ddea0800000000000000
+      internalID: -5846448108583344333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_3
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 3543
+        width: 169
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55038f38c8d7183f0800000000000000
+      internalID: -900300408034414507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_4
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 3436
+        width: 192
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63423e33d1208ffe0800000000000000
+      internalID: -1155170979972701130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_5
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 3534
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b8e594538f0e670800000000000000
+      internalID: 8566119399006571417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_6
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 3523
+        width: 168
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef86af8b2490c6fb0800000000000000
+      internalID: -4653334132804654850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_7
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 3482
+        width: 192
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c148b9f37c5888a60800000000000000
+      internalID: 7676532655665153052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_8
+      rect:
+        serializedVersion: 2
+        x: 2895
+        y: 2813
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45ea6d0fb94bd8b30800000000000000
+      internalID: 4291284601807482452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_9
+      rect:
+        serializedVersion: 2
+        x: 3994
+        y: 2801
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df5f68d92a5b65c0800000000000000
+      internalID: -4221181089958371373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_10
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 2631
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf923599286057b40800000000000000
+      internalID: 5437259283107621372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_11
+      rect:
+        serializedVersion: 2
+        x: 3995
+        y: 2624
+        width: 191
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a98b8862a5832ba20800000000000000
+      internalID: 3076583455292176538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_12
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 2472
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bdf4899064a9b300800000000000000
+      internalID: 268426387604700595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_13
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 2109
+        width: 299
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a163b15b9312600800000000000000
+      internalID: 441697688467413521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_14
+      rect:
+        serializedVersion: 2
+        x: 3286
+        y: 2402
+        width: 193
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9761c6eb4ec3cde30800000000000000
+      internalID: 4529562278372841081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_15
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 2348
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f25fdd763b640880800000000000000
+      internalID: -8645667502860315911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_16
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 2011
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 557699935ba4b16d0800000000000000
+      internalID: -3018736983005894827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_17
+      rect:
+        serializedVersion: 2
+        x: 3591
+        y: 2094
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b86e55c5d862d98d0800000000000000
+      internalID: -2838069801592166773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1778
+        width: 117
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e4628478389b420800000000000000
+      internalID: 2646290873111170605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_19
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1860
+        width: 275
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3011aa44ae1207b00800000000000000
+      internalID: 824196021866860803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_20
+      rect:
+        serializedVersion: 2
+        x: 1915
+        y: 1552
+        width: 229
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb854f591ba41e00800000000000000
+      internalID: 1014623941526129642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_21
+      rect:
+        serializedVersion: 2
+        x: 3406
+        y: 1562
+        width: 415
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265268fafa3eda6b0800000000000000
+      internalID: -5283316444132137630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1502
+        width: 296
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9feb1c63148a7d8c0800000000000000
+      internalID: -3974523148086165767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_23
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 1719
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1c5476d51a4a3e0800000000000000
+      internalID: -2043330908382707287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_24
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 1716
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a54680e32c5389890800000000000000
+      internalID: -7451146475103820710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_25
+      rect:
+        serializedVersion: 2
+        x: 2646
+        y: 1699
+        width: 168
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7a2a589fbb21ab0800000000000000
+      internalID: -5038758352710883356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_26
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 1430
+        width: 272
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d5becc71bc328840800000000000000
+      internalID: 5224805250703996374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_27
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 1343
+        width: 153
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0289963ac4920df0800000000000000
+      internalID: -215446235940027890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_28
+      rect:
+        serializedVersion: 2
+        x: 3716
+        y: 1494
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2113ff5aca00bd9b0800000000000000
+      internalID: -5054445415273909998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_29
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 1322
+        width: 192
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e36d49220f9c7b70800000000000000
+      internalID: 8898161795408946146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_30
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 1284
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d410e39422227a20800000000000000
+      internalID: 3058544637433091287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_31
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 1370
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826a6c263d33a5f20800000000000000
+      internalID: 3412096650674873896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_32
+      rect:
+        serializedVersion: 2
+        x: 2973
+        y: 1364
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247ccd50f9f285570800000000000000
+      internalID: 8455560660432766786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_33
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1169
+        width: 195
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8febe2ea3fd69b720800000000000000
+      internalID: 2862439931537440504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_34
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 949
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30e8b8e9d87efe10800000000000000
+      internalID: 2233355342530011197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_35
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 815
+        width: 192
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5616c8fe5fae980800000000000000
+      internalID: -8508718136761948701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_36
+      rect:
+        serializedVersion: 2
+        x: 2837
+        y: 898
+        width: 168
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19f77bf919879a6a0800000000000000
+      internalID: -6437481625504219247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_37
+      rect:
+        serializedVersion: 2
+        x: 3194
+        y: 957
+        width: 197
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3307f57113357f0800000000000000
+      internalID: -625101946819169362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_38
+      rect:
+        serializedVersion: 2
+        x: 3476
+        y: 908
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248480244e6a9f900800000000000000
+      internalID: 718789114832898114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_39
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 683
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b538abdb914b98190800000000000000
+      internalID: -7959632843750341797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_40
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 693
+        width: 153
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69d6105dabf27950800000000000000
+      internalID: 6445490738512189806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_41
+      rect:
+        serializedVersion: 2
+        x: 2581
+        y: 771
+        width: 176
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b2386e5025b5bdf0800000000000000
+      internalID: -165026660701687118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_42
+      rect:
+        serializedVersion: 2
+        x: 2762
+        y: 790
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1c8f56ef86e1df0800000000000000
+      internalID: -207613090970680896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_43
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 598
+        width: 153
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4b77f09e4569b840800000000000000
+      internalID: 5240331029536275277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_44
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 412
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6fb08112309d940800000000000000
+      internalID: 5321287875387193041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_45
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 374
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d20b1873901e5950800000000000000
+      internalID: 6439602742747661011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_46
+      rect:
+        serializedVersion: 2
+        x: 2186
+        y: 314
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cd9e0736f7efeda0800000000000000
+      internalID: -5913252741042496056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_47
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 218
+        width: 192
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd8be77a46b94cf0800000000000000
+      internalID: -267482271896072753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2 lams_48
+      rect:
+        serializedVersion: 2
+        x: 2248
+        y: 0
+        width: 223
+        height: 327
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d180c98fbd2eb7e0800000000000000
+      internalID: -1747909304700075565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      B2 lams_0: -8250493482037747300
+      B2 lams_1: -784197522943924320
+      B2 lams_10: 5437259283107621372
+      B2 lams_11: 3076583455292176538
+      B2 lams_12: 268426387604700595
+      B2 lams_13: 441697688467413521
+      B2 lams_14: 4529562278372841081
+      B2 lams_15: -8645667502860315911
+      B2 lams_16: -3018736983005894827
+      B2 lams_17: -2838069801592166773
+      B2 lams_18: 2646290873111170605
+      B2 lams_19: 824196021866860803
+      B2 lams_2: -5846448108583344333
+      B2 lams_20: 1014623941526129642
+      B2 lams_21: -5283316444132137630
+      B2 lams_22: -3974523148086165767
+      B2 lams_23: -2043330908382707287
+      B2 lams_24: -7451146475103820710
+      B2 lams_25: -5038758352710883356
+      B2 lams_26: 5224805250703996374
+      B2 lams_27: -215446235940027890
+      B2 lams_28: -5054445415273909998
+      B2 lams_29: 8898161795408946146
+      B2 lams_3: -900300408034414507
+      B2 lams_30: 3058544637433091287
+      B2 lams_31: 3412096650674873896
+      B2 lams_32: 8455560660432766786
+      B2 lams_33: 2862439931537440504
+      B2 lams_34: 2233355342530011197
+      B2 lams_35: -8508718136761948701
+      B2 lams_36: -6437481625504219247
+      B2 lams_37: -625101946819169362
+      B2 lams_38: 718789114832898114
+      B2 lams_39: -7959632843750341797
+      B2 lams_4: -1155170979972701130
+      B2 lams_40: 6445490738512189806
+      B2 lams_41: -165026660701687118
+      B2 lams_42: -207613090970680896
+      B2 lams_43: 5240331029536275277
+      B2 lams_44: 5321287875387193041
+      B2 lams_45: 6439602742747661011
+      B2 lams_46: -5913252741042496056
+      B2 lams_47: -267482271896072753
+      B2 lams_48: -1747909304700075565
+      B2 lams_5: 8566119399006571417
+      B2 lams_6: -4653334132804654850
+      B2 lams_7: 7676532655665153052
+      B2 lams_8: 4291284601807482452
+      B2 lams_9: -4221181089958371373
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
