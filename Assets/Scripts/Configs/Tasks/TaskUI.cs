@@ -7,7 +7,7 @@ public class TaskUI : MonoBehaviour
     public static TaskUI Instance { get; private set; }
 
     [SerializeField] private TMP_Text taskText;
-    [SerializeField] private Image taskIconImage;
+    // [SerializeField] private Image taskIconImage;
 
     private void Awake()
     {
@@ -19,6 +19,6 @@ public class TaskUI : MonoBehaviour
         if (task == null) return;
 
         taskText.text = $"* {task.Description}";
-        taskIconImage.sprite = task.Icon;
+        // taskIconImage.sprite = task.Icon;
     }
 }
