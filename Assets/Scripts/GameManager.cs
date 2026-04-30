@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
         _playerSO.HasFirstBattery = true;
         TaskManager.Instance?.CompleteTaskById("TaskData_Collect_FirstBat");
     }
+
     public void ObtainSecondBattery()
     {
         if (_playerSO == null) return;
